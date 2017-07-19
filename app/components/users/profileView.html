@@ -1,0 +1,141 @@
+<div ng-controller="ProfileController">
+    <div style="padding: 80px 0px; 0px; 0px;">
+        <form name="profileform" id="profileform" ng-submit="saveUserData()" class="input-controls-group col-md-offset-3 col-md-6">
+            <div class="no-padding col-md-12 col-lg-12 col-xs-12">
+                <div class="col-md-6 col-lg-6 col-xs-12">
+                    <div class="input-control">
+                        <label class="col-lg-12 col-xs-12 no-padding">First Name</label>
+                        <input type="text" ng-model="profileuser.firstName" readonly onfocus="this.removeAttribute('readonly');" autocomplete="off" class="input-text col-lg-12 col-xs-12" maxlength="50" required />
+                    </div>
+                    <div class="input-control">
+                        <label class="col-lg-12 col-xs-12 no-padding">Last Name</label>
+                        <input type="text" ng-model="profileuser.lastName" readonly onfocus="this.removeAttribute('readonly');" autocomplete="off" class="input-text col-lg-12 col-xs-12" maxlength="50" required />
+                    </div>
+                    <div class="input-control">
+                        <label class="col-lg-12 col-xs-12 no-padding">Phone</label>
+                        <input type="text" name="phone" ng-model="profileuser.phone" readonly onfocus="this.removeAttribute('readonly');" autocomplete="off" ng-pattern="/^(\(?([0-9]{3})\)?)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/" class="input-text col-lg-12 col-xs-12" maxlength="15" required />
+                        <span class="error" ng-show="profileform.phone.$error.pattern && profileform.phone.$dirty">Please enter valid phone</span>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6 col-xs-12" style="text-align: center;">
+                    <div class="proImg" style="background-image:url(/documents/Profile-Image/{{profileuser.profileImageName?profileuser.id+'/'+profileuser.profileImageName : 'avatar.png'}});">
+                        <!--<img style="width: 80%;border-radius: 4px;" ng-src="/documents/Profile-Image/{{profileuser.id}}/{{profileuser.profileImageName}}" />-->
+                        <div style="position:absolute;bottom:0px;width: 100%;background-color: rgba(0,0,0,0.3);">
+                            <div class="fileUpload">
+                                <span><i class="fa fa-camera" aria-hidden="true"></i></span>
+                                <input id=proImageInput type="file" class="upload" fileread="propic" accept="image/*" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 col-lg-12 col-xs-12">
+                <div class="input-control" style="position:relative">
+                    <label class="col-lg-12 col-xs-12 no-padding">Email</label>
+                    <input type="text" ng-model="profileuser.email" readonly onfocus="this.removeAttribute('readonly');" autocomplete="off" maxlength="100" disabled class="input-text col-lg-12 col-xs-12" />
+                    <!-- <div style="position:absolute;right:3px;bottom:5px">
+                        <input type="button" ng-click="editEmail()" value="Edit" />
+                    </div> -->
+                </div>
+            </div>
+            <div class="col-md-12 col-lg-12 col-xs-12">
+                <div class="input-control">
+                    <label class="col-lg-12 col-xs-12 no-padding">Address1</label>
+                    <input type="text" ng-model="profileuser.address1" readonly onfocus="this.removeAttribute('readonly');" autocomplete="off" maxlength="200" class="input-text col-lg-12 col-xs-12" />
+                </div>
+            </div>
+            <div class="col-md-12 col-lg-12 col-xs-12">
+                <div class="input-control">
+                    <label class="col-lg-12 col-xs-12 no-padding">Address2</label>
+                    <input type="text" ng-model="profileuser.address2" readonly onfocus="this.removeAttribute('readonly');" autocomplete="off" maxlength="200" class="input-text col-lg-12 col-xs-12" />
+                </div>
+            </div>
+            <div class="no-padding col-md-12 col-lg-12 col-xs-12">
+                <div class="col-md-6 col-lg-6 col-xs-6">
+                    <div class="input-control">
+                        <label class="col-lg-12 col-xs-12 no-padding">City</label>
+                        <input type="text" ng-model="profileuser.city" readonly onfocus="this.removeAttribute('readonly');" autocomplete="off" maxlength="100" class="input-text col-lg-12 col-xs-12" />
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6 col-xs-6">
+                    <div class="input-control">
+                        <label class="col-lg-12 col-xs-12 no-padding">ZIP</label>
+                        <input type="text" name="zip" ng-model="profileuser.zip" readonly onfocus="this.removeAttribute('readonly');" autocomplete="off" maxlength="20" ng-pattern="/^\d{6}(?:[-\s]\d{4})?$/" class="input-text col-lg-12 col-xs-12" />
+                        <span class="error" ng-show="profileform.zip.$error.pattern && profileform.zip.$dirty">Please enter valid zip</span>
+                    </div>
+                </div>
+            </div>
+            <div class="no-padding col-md-12 col-lg-12 col-xs-12">
+                <div class="col-md-6 col-lg-6 col-xs-6">
+                    <div class="input-control">
+                        <label class="col-lg-12 col-xs-12 no-padding">State</label>
+                        <input type="text" ng-model="profileuser.state" readonly onfocus="this.removeAttribute('readonly');" autocomplete="off" maxlength="100" class="input-text col-lg-12 col-xs-12" />
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6 col-xs-6">
+                    <div class="input-control">
+                        <label class="col-lg-12 col-xs-12 no-padding">Country</label>
+                        <input type="text" ng-model="profileuser.country" readonly onfocus="this.removeAttribute('readonly');" autocomplete="off" maxlength="100" class="input-text col-lg-12 col-xs-12" />
+                    </div>
+                </div>
+            </div>
+            <div class="no-padding col-md-12 col-lg-12 col-xs-12">
+                <div class="col-md-offset-9 col-lg-offset-9 col-md-3 col-lg-3 col-xs-6">
+                    <div class="input-control">
+                        <label class="col-lg-12 col-xs-12 no-padding">&nbsp;</label>
+                        <input type="submit" ng-disabled="profileform.$invalid" value="Update Profile" class="col-lg-12 col-xs-12" />
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<!-- Edit Email Model -->
+<script type="text/ng-template" id="changeEmailModalContent.html">
+    <div class="modal-body">
+        <div class="col-md-12">
+            <form name="emailchangeform" class="input-controls-group" id="emailchangeform" ng-submit="submitEmailForm()" role="form" autocomplete="off">
+                <div class="input-control" ng-if="view == 'email'" style="font-size:18px">
+                    <label class="col-lg-12 col-xs-12 no-padding">Old email:&nbsp;{{oldemail}}</label>						
+                </div>
+                <div class="input-control" ng-if="view == 'email'">
+                    <label class="col-lg-12 col-xs-12 no-padding">New email:</label>
+                    <input ng-model="emailform.email" name="email" readonly onfocus="this.removeAttribute('readonly');" type="email"
+                           class="col-lg-12 col-xs-12 input-text" placeholder="NEW EMAIL"
+                           autocomplete="off" required ng-pattern="/^[_a-z0-9]+(\.[_a-z0-9]+)*(\+[a-z0-9-]+)?@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{1,4})$/" maxlength="100" />
+                    <span class="error" ng-show="emailchangeform.email.$error.pattern && emailchangeform.email.$dirty">Please enter valid email</span>
+                </div>
+                <div class="input-control" ng-if="view == 'email'">
+                    <label class="col-lg-12 col-xs-12 no-padding">Note: OTP will be sent to your email, You need to submit it in the next step.</label>
+                </div>
+                <div class="input-control" ng-if="view == 'otp'">
+                    <label class="col-lg-12 col-xs-12 no-padding">OTP&nbsp;<a class="cursor-pointer" ng-click="resendOTP()">Resend OTP</a></label>
+                    <input type="text" placeholder="OTP" name="otp" class="col-lg-12 col-xs-12 input-text" ng-model="emailform.otp" required/>							
+                </div>
+            </form>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="modal-footer input-controls-group">
+        <div class="input-control">
+            <input type="submit" ng-disabled="emailchangeform.$invalid" form="emailchangeform" value="Continue" />&nbsp;
+            <input type="button" ng-click="cancel()" value="Cancel" />
+        </div>
+    </div>
+</script>
+
+<!-- Change Profile Picture Model -->
+<div>
+<script type="text/ng-template" id="changeDPModalContent.html">
+    <div class="modal-body">
+        <button class="close" type="button" ng-click="cancel()"><i class="fa fa-times" aria-hidden="true"></i></button>
+        <div class="col-md-12">
+            <image-cropper image-url="{{imageUrlOrBase64}}" show-controls="true" fit-on-init="true" center-on-init="true"
+                        api="getCropperApi" crop-callback="updateResultImage" check-cross-origin="false" zoom-step="0.001" 
+                        action-labels="myButtonLabels"></image-cropper>
+        </div>
+        <div ng-show="resultImage!=null"><img ng-src="{{resultImage}}" /></div>
+        <div class="clearfix"></div>
+    </div>    
+</script>
+</div>

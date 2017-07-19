@@ -1,0 +1,324 @@
+<div ng-controller="BankAppDetailController as BAC" class="padding-top-80">
+    <div class="row no-margin">
+        <div class="col-md-4 col-xs-4">
+            <div class="table-bordered col-md-12 padding-top-bottom-5">
+                <div><span class="font-weight-bold">Application Number:</span> {{appDetail.applicationNumber}}</div>
+                <div style="width:100%" ng-repeat="ans in appAnswers" ng-if="ans.questionLabel == 'Contact'" style="padding:5px 10px">
+                    <div style="width:100%" ng-repeat="(key, value) in ans.answers">
+                        <span class="font-weight-bold">{{key}}:</span> {{value}}
+                    </div>
+                </div>
+                <div><span class="font-weight-bold">Loan Amount: </span><span ng-bind-html="appDetail.loanAmount | INR"></span></div>
+                <div><span class="font-weight-bold">Loan Type:</span> {{appDetail.loanType}}</div>
+                <div ng-if="appDetail.loanType == 'Personal Loan'"><span class="font-weight-bold">Loan Purpose:</span> {{appDetail.loanPurpose}}</div>
+            </div>
+            <div class="clearfix">&nbsp;</div>
+            <div ng-if="appDetail.loanType == 'Personal Loan'" class="content-wrapper pull-right col-md-12 padding-10 col-sm-12 col-xs-12">
+                <div class="text-center">
+                    <h4>
+                        <label>Eligible Loan Amount: <span ng-bind-html="eligibleLoanAmnt | INR"></span></label>
+                    </h4>
+                </div>
+                <canvas id="pie" class="chart chart-pie" chart-data="data" chart-labels="labels" chart-colours="colours"></canvas>
+                <div class="clearfix"></div>
+                <div class="pie-chart-notation">
+                    <div class="col-md-12">
+                        <div class="pull-left">
+                            <label><span class="orange-squre"></span>Avg. Monthly Salary Earned</label>
+                        </div>
+                        <div class="pull-right">
+                            <label><span ng-bind-html="appSalaryEarned | INR"></span></label>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="pull-left">
+                            <label><span class="green-squre"></span>Avg. Monthly Expenses</label>
+                        </div>
+                        <div class="pull-right">
+                            <label><span ng-bind-html="appExpenses | INR"></span></label>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="pull-left">
+                            <label><span class="red-squre"></span>Total Monthly EMI(s)</label>
+                        </div>
+                        <div class="pull-right">
+                            <label><span ng-bind-html="appTotalEMIs | INR"></span></label>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="pie-chart-notation notation-border col-md-12">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="pull-left">
+                            <label>Total EMI Affordability</label>
+                        </div>
+                        <div class="pull-right text-right col-md-3 col-sm-3 col-xs-3 no-padding">
+                            <label><span ng-bind-html="emi | INR"></span></label>
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="pull-left">
+                            <label>Tenure(In Months)</label>
+                        </div>
+                        <div class="pull-right text-right col-md-3 col-sm-3 col-xs-3 no-padding">
+                            <input type="text" ng-model="tenure" name="tenure" class="col-md-3 float-none width-100" ng-keyup="calculateLoanEligibility()" required only-digits />
+                        </div>
+                    </div>
+                    <div class="col-md-12  col-sm-12 col-xs-12">
+                        <div class="pull-left">
+                            <label>Rate of Interest(%)</label>
+                        </div>
+                        <div class="pull-right text-right col-md-3 col-sm-3 col-xs-3 no-padding">
+                            <input type="text" ng-model="BAC.rateOfInterest" name="rateOfInterest" class="col-md-3 float-none width-100" readonly onfocus="this.removeAttribute('readonly');" autocomplete="off" maxlength="10" required only-digits ng-keyup="calculateLoanEligibility()" />
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="pull-left">
+                            <label>Loan Repayment(%)</label>
+                        </div>
+                        <div class="pull-right text-right col-md-3 col-sm-3 col-xs-3 no-padding">
+                            <input type="text" ng-model="loanRepaymentPercentage" name="loanRepaymentPercentage" class="col-md-3 float-none width-100" readonly onfocus="this.removeAttribute('readonly');" autocomplete="off" maxlength="10" required only-digits ng-keyup="calculateLoanEligibility()" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix">&nbsp;</div>
+        </div>
+        <div class="col-md-8 col-xs-8">
+            <uib-tabset active="active">
+                <uib-tab index="0" heading="Aplication Details">
+                    <div ng-repeat="ans in appAnswers" ng-if="ans.questionLabel != 'Contact'" class="col-md-4 col-xs-4" style="padding:5px 10px">
+                        <div class="font-weight-bold">{{ans.questionLabel}}</div>
+                        <div ng-if="ans.questionLabel != 'Work Experiance'" ng-repeat="(key, value) in ans.answers">
+                            <span ng-if="ans.questionLabel.indexOf(key) == -1 && key.indexOf(ans.questionLabel) == -1">{{key}}:</span>
+                            <span ng-show="['Loan Amount','Monthly EMI','Monthly Salary','Expected course expenses','Net monthly income'].indexOf(ans.questionLabel) == -1">{{value}}</span>
+                            <span ng-show="['Loan Amount','Monthly EMI','Monthly Salary','Expected course expenses','Net monthly income'].indexOf(ans.questionLabel) > -1" ng-bind-html="value | INR"></span>
+                        </div>
+                        <span ng-if="ans.questionLabel == 'Work Experiance'">{{WorkExperience}}&nbsp;</span>
+                    </div>
+                </uib-tab>
+                <uib-tab index="1" heading="Documents">
+                    <table class="table table-bordered margin-top-20">
+                        <thead>
+                            <tr>
+                                <th>Document Type</th>
+                                <th>Document Name</th>
+                                <th class="text-center">Last Updated Date</th>
+                                <th class="text-center">Final Copy</th>
+                            </tr>
+                        </thead>
+                       
+                        <tbody ng-repeat="doc in appDocuments">
+                        <td rowspan="{{doc.documents.length+1}}" ng-if="doc.documents.length > 0">{{doc.name}}</td>
+                        <tr ng-repeat="docs in doc.documents" ng-if="doc.documents.length > 0">
+                            <td ng-if="docs.documentTypeId !=4  && docs.documentTypeId != 5"><a target="_blank" href="/documents/personal-loan/{{appid}}/{{docs.documentFileName}}">{{docs.documentName}}</a></td>
+                            <td ng-if="docs.documentTypeId ==4  || docs.documentTypeId == 5">{{docs.documentName}}</td>
+                            <td class="text-center">{{docs.documentUploadedDate|date:'dd-MM-yyyy hh:mm a'}}</td>
+                            <td class="text-center" ng-class="docs.documentIsActive == 1 ? 'font-green':'font-red'">{{docs.documentIsActive == 1 ? 'Yes' : 'No'}}</td>
+                        </tr>
+                        </tbody>
+
+                    </table>
+                </uib-tab>
+                <uib-tab ng-if="appDetail.loanType == 'Personal Loan'" index="2" heading="Salary Details">
+                    <table class="table table-bordered margin-top-20">
+                        <thead>
+                            <tr>
+                                <th>Month</th>
+                                <th>Year</th>
+                                <th>Gross Salary</th>
+                                <th>Net Salary</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="sal in appSalary">
+                                <td>{{monthNames[sal.month - 1]}}</td>
+                                <td>{{sal.year}}</td>
+                                <td ng-bind-html="sal.grossSalary | INR"></td>
+                                <td ng-bind-html="sal.netSalary | INR"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </uib-tab>
+                <uib-tab ng-if="appDetail.loanType == 'Personal Loan'" index="3" heading="Bank Statement">
+                    <div class="margin-top-20"></div>
+                    <div ng-slimscroll height="440px">
+                        <table class="table table-bordered no-margin">
+                            <thead>
+                                <tr>
+                                    <th>Transaction Date</th>
+                                    <th>Description</th>
+                                    <th>Credit</th>
+                                    <th>Debit</th>
+                                    <th>Balance</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="stmnt in appStatements">
+                                    <td>{{stmnt.transactionDate|date:'dd-MM-yyyy'}}</td>
+                                    <td>{{stmnt.description}}</td>
+                                    <td ng-bind-html="stmnt.creditAmount | INR"></td>
+                                    <td ng-bind-html="stmnt.debitAmount | INR"></td>
+                                    <td ng-bind-html="stmnt.balance | INR"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </uib-tab>
+                <uib-tab ng-if="appDetail.loanType == 'Personal Loan'" index="4" heading="EMI Calculation">
+                    <div class="margin-top-20"></div>
+                    <div class="col-md-12 col-xs-12">
+                        <div class="col-md-5 col-xs-5">
+                            <form name="emicalculatorform" role="form" ng-submit="calculateEMI()" class="input-controls-group">
+                                <div class="col-md-12">
+                                    <div class="col-md-12">
+                                        <div class="range-slider">
+                                            <div class="range-popup">
+                                                <label for="loanAmount">Loan Amount:</label>
+                                                <ion-range-slider min="sliderLoanOptions.floor"
+                                                                  max="sliderLoanOptions.ceil" step="10000"
+                                                                  from="eligibleLoanAmnt" grid="true" prefix="&#8377;"
+                                                                  ansparam="'eligibleLoanAmnt'" cbfn="onFinishFn"></ion-range-slider>
+                                            </div>
+                                        </div>
+                                        <div class="range-slider">
+                                            <div class="range-popup">
+                                                <label for="tenure">Tenure(In Months):</label>
+                                                <ion-range-slider min="sliderTenureOptions.floor"
+                                                                  max="sliderTenureOptions.ceil" step="1"
+                                                                  from="tenure" grid="true" ansparam="'tenure'"
+                                                                  cbfn="onFinishFn"></ion-range-slider>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 row">
+                                            <div class="col-md-12 row">
+                                                <div class="input-control">
+                                                    <label for="rateofinterest">Interest Rate in %:</label>
+                                                    <input type="text" ng-model="BAC.rateOfInterest" name="rateOfInterest" readonly onfocus="this.removeAttribute('readonly');" autocomplete="off" maxlength="10" class="col-lg-12 col-xs-12 input-text" required only-digits />
+                                                    <span ng-show="rateOfInterest.$error.required && rateOfInterest.$dirty">required</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 row">
+                                            <div class="col-md-12 row">
+                                                <div class="input-control">
+                                                    <label for="processingfeespercentage">Processing Fees:(% of loan amount)</label>
+                                                    <input type="text" ng-model="BAC.processingFeesPercentage" name="processingFeesPercentage" class="col-lg-12 col-xs-12 input-text" required only-digits />
+
+                                                    <span ng-show="processingFeesPercentage.$error.required && processingFeesPercentage.$dirty">required</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="input-control">
+                                            <input type="submit" value="Calculate" slide-toggle="#dvProcessedData" />
+                                        </div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col-md-7 col-xs-7">
+                            <div class="col-md-12">
+                                <div class="content-wrapper-emi pull-right col-md-12 padding-10 col-sm-12 col-xs-12">
+                                    <div class="text-center">
+                                        <h4>
+                                            <label>Break-up of all total amount payable</label>
+                                        </h4>
+                                    </div>
+                                    <canvas id="pie" class="chart chart-pie" chart-data="dataEMI" chart-labels="labelsEMI" chart-colours="coloursEMI"></canvas>
+                                    <div class="clearfix"></div>
+                                    <div class="pie-chart-notation">
+                                        <div>
+                                            <div class="pull-left">
+                                                <label><span class="orange-squre"></span>Loan Amount</label>
+                                            </div>
+                                            <div class="pull-right">
+                                                <label ng-bind-html="eligibleLoanAmnt | INR"></label>
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                        <div>
+                                            <div class="pull-left">
+                                                <label><span class="green-squre"></span>Total Interest Due</label>
+                                            </div>
+                                            <div class="pull-right">
+                                                <label ng-bind-html="totalInterest | INR"></label>
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                        <div>
+                                            <div class="pull-left">
+                                                <label><span class="red-squre"></span>Processing Fee</label>
+                                            </div>
+                                            <div class="pull-right">
+                                                <label ng-bind-html="processingFees | INR"></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12  col-xs-12" ng-show="showProcessedData">
+                        <div class="col-md-12 text-center">
+                            <h1>
+                                <label>Monthly Loan EMI:&nbsp;</label><label ng-model="emi" class="emi-text" ng-bind-html="emi | INR"></label>
+                            </h1>
+                            <h4>
+                                <label>Monthly amount paid break-ups</label>
+                            </h4>
+                        </div>
+                        <div class="clearfix">&nbsp;</div>
+                    </div>
+                    <div class="col-md-12  col-xs-12 row" ng-show="showProcessedData">
+                        <div class="col-md-12">
+                            <div class="clearfix col-md-12">
+                                <div class="input-control pull-right">
+                                    <span class="cursor-pointer" ng-click="tableToExcel('emitable', 'Export Data', 'excel');"><i class="fa fa-print" aria-hidden="true"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="col-md-12 emi-container">
+                                <div ng-slimscroll height="330px">
+                                    <table ng-show='Amortizations.length > 0' class='table table-bordered no-margin' id="emitable">
+                                        <thead>
+                                            <tr class='header'>
+                                                <th>Month#</th>
+                                                <th>Principal Paid(A)</th>
+                                                <th>Interest Paid(B)</th>
+                                                <th>Total Payment (A+B)</th>
+                                                <th>Balance</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr ng-repeat='a in Amortizations'>
+                                                <td>{{a.MonthNumber}}</td>
+                                                <td ng-bind-html="a.Principal | INR"></td>
+                                                <td ng-bind-html="a.Interest | INR"></td>
+                                                <td ng-bind-html="a.Amortization | INR"></td>
+                                                <td ng-bind-html="a.PrincipalBalance | INR"></td>
+                                            </tr>
+                                        </tbody>
+                                        <tfooter>
+                                            <tr>
+                                                <td><b>Total</b></td>
+                                                <td></td>
+                                                <td><b ng-bind-html="totalInterestPayable | INR"></b></td>
+                                                <td><b ng-bind-html="totalPrincipal | INR"></b></td>
+                                                <td><b ng-bind-html="totalAmortization | INR"></b></td>
+                                            </tr>
+                                        </tfooter>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </uib-tab>
+            </uib-tabset>
+        </div>
+    </div>
+</div>

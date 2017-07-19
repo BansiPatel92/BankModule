@@ -1,0 +1,102 @@
+.nav-tabs {border-bottom: 1px solid #ddd;margin-bottom: 15px;}
+.no-padding{padding:0px;}
+section.row.content-header {margin: 15px auto;}
+.right-side > .content-header {position: relative;width: 90%;margin: 15px auto;padding:0px;}/*width: calc(100% - 10px);*/
+.application-title h1 {font-size: 16px;font-weight: 600;display:inline-block;margin:0px;padding: 9px 0px;vertical-align: middle;}
+.header-button{display: inline-block;width:64%;}
+.right-side .content-header span{color:#999;font-size:14px;}
+.bg-red{background-color:#dd4b39;}
+.bg-green{background-color:#00a65a;}
+.bg-aqua{background-color:#00c0ef;}
+h3.widget-user-username {padding: 10px;margin:0px;}
+.box {position: relative;background: #ffffff;border-top: 0px solid #c1c1c1;margin-bottom: 20px;-webkit-border-radius: 3px;-moz-border-radius: 3px;border-radius: 3px;width: 100%;box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);}
+.bg-grey{background-color: transparent;color: #000 !important;}
+.address-formst{word-wrap: break-word;width: 50%;white-space: inherit;text-align: right;display: block;}
+tr.document-type-hover{background-color:#00c0ef;color:#fff;}
+tr.driving-license-bg{background-color: #f9f9f9;}
+.right-side.strech > .content-header {
+    margin-top: 15px;
+}
+td.align-center{text-align:center;}
+/*New css starts*/
+.status-tabs.new-status-tabs{margin: 20px 0px;border-bottom: 1px solid #cfcfcf;}
+.status-tabs.new-status-tabs li {border: 0px;margin: 0px 5px;display: inline-block;color: #ababab;font-family: "karmillabold", sans-serif;}
+.status-tabs.new-status-tabs li:hover, .status-tabs.new-status-tabs li.active {border-bottom: 3px solid #0091d3;background: none;color: #424242;padding-bottom: 7px;}
+
+.red{
+	color: red;
+}
+.blue{
+	color: blue;
+}
+.green{
+	color: green;
+}
+.padding-top-border{	
+	border-collapse: separate;
+	border-spacing: 10px 50px;
+	padding: 15px;
+}
+/*Profile upload starts*/
+.proImg{border-radius:100px;margin:0 auto;margin-top:28px;position:relative;height:180px;width:180px;background-size:100% 100%;overflow:hidden;border:1px solid #0091d3;}
+.fileUpload{position:relative;overflow:hidden;color:#fff;opacity:0.5;padding:10px;}
+.fileUpload:hover{color:#fff;opacity:0.8;}
+.fileUpload input.upload{position:absolute;top:0;right:20;margin:0;padding:0;font-size:20px;cursor:pointer;opacity:0;filter:alpha(opacity=0);}
+/*Profile upload ends*/
+
+/*Scrolling to top Button */
+.scroll{position: relative;cursor: pointer;}
+.scroll img{position: absolute;bottom: 30px;right: 30px;}
+.box-1{border:1px solid #ddd;width:90%;margin: 10px auto;}
+
+/*EMI Calculator*/
+.orange-squre{width:10px;height:10px;display:inline-block;margin-right:10px;vertical-align:middle;background-color:#F1A334;}
+.green-squre{width:10px;height:10px;display:inline-block;margin-right:10px;vertical-align:middle;background-color:#02C8A5;}
+.red-squre{width:10px;height:10px;display:inline-block;margin-right:10px;vertical-align:middle;background-color:#FF3334;}
+
+
+.headName {
+	font-family: Comic Sans MS;
+	font-size: 24px;
+	margin: 12px;
+	text-align: center;
+}
+.bar {
+	padding: 10px;
+	text-align: center;
+}
+ul.data-ctrl {
+	list-style: outside none none;
+	margin: 0 auto;
+	max-width: 500px;
+	padding-left: 0;
+	text-align: center;
+	text-decoration: none;
+}
+input.search {
+	border: 2px solid #1fa67a;
+	font-size: 16px;
+	height: 35px;
+	text-align: center;
+	width: 280px;
+}
+.data-ctrl li {
+	background-color: #1fa67a;
+	border-radius: 3px;
+	color: #ffffff;
+	font-size: 17px;
+	height: 25px;
+	padding: 0;
+
+
+	
+/*New css ends*/
+@media only screen and (max-width: 400px){
+   h3.widget-user-username {
+    font-size: 20px;
+}
+button {
+    width: calc(50% - 2px);
+    margin: 15px 0px 15px 0px;
+}
+}

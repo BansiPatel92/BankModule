@@ -1,0 +1,160 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : May 5, 2017, 9:49:48 AM
+    Author     : Plutus
+*/
+@media only screen and (min-width: 1024px){  
+    #header .head {background-position: 50% bottom;}
+    /*.for-bg-trangistion img {margin-top: -57px;}*/
+    #other-service-section .service-section .service ul li {padding: 8px 51.5px;}
+    #footer-section .footer .follow-us img{margin-right:2px;}
+    #footer-section .footer .subscribe ul li input{width: 183px;}
+    #footer-section .footer .contact-us{padding: 0px;}
+    #footer-section .footer .subscribe h4{width: 302px;}
+    #menu-section .background .menu ul{padding:0px;}
+}
+@media only screen and (max-width: 1365px){  
+    #menu-section .background .menu ul{padding:0px;}
+    #menu-section .background .menu ul li{width: 155px;}
+}
+
+@media only screen and (max-width: 1024px){  
+    #other-service-section .service-section .service ul li {padding: 8px 51.5px;}
+    #menu-section .background .menu ul{padding:0px;}
+    #footer-section .footer .follow-us img{margin-right:2px;}
+    #footer-section .footer .subscribe ul li input{width: 183px;}
+    #footer-section .footer .contact-us{padding: 0px;}
+    #footer-section .footer .subscribe h4{width: 302px;}
+    #our-partner-section .partner-section .bx-wrapper .bx-next{right: 26px;}
+    #our-partner-section .partner-section .bx-wrapper .bx-prev{left:31px;}
+}
+@media only screen and (max-width: 991px){
+    #menu-section .background .menu ul li:after{content: "";border-top: 1px dashed #ffffff;position: absolute;top: 0px;left: 15px;right: 15px;}
+    #menu-section .background .menu ul li:nth-child(3n-2):before{border-left: 0px;} 
+    #menu-section .background .menu ul li:last-child:before {border-right: 0px;}
+    #menu-section .background .menu ul li:nth-child(-n+3):after{border-top: 0px;}
+    #header .head .navbar-inverse .collapse ul li a {padding: 17px 10px;}
+    #menu-section .background .no-padding{padding:0px;}
+    #menu-section .background .menu ul{padding:0px;}
+    #menu-section .background .menu ul li{width: 33.33%;}
+    #menu-section .background .menu ul li.border-1{border-left:1px dotted #fff;}
+    #other-service-section .service-section .service ul li {padding: 8px 22.5px;}
+    #track-application-section .track-application .application-detail ul li{padding:0px;}
+    #testimonial-section .testimonial .padding{padding: 0px;}
+    #footer-section .footer .contact-us{width:200px;}
+    #footer-section .footer .follow-us{width: 100px;}
+    #footer-section .footer .subscribe h4{width: 210px;}
+    #footer-section .footer .subscribe ul li input{width: 110px;}
+    #footer-section .footer .mobile-app h5 {text-align: left;width: 100%;}
+    #footer-section .footer .mobile-app img{margin-bottom: 5px;}
+}
+@media only screen and (max-width: 767px){
+    .for-bg-trangistion {margin-top: 291px !important;}
+    .for-bg-trangistion img {width: calc(100% + 268px);}
+    #header .head .right-side-text {margin-top: 0%;display: inline-block;margin: 0px auto;width: 100%;}
+    .for-cloud{display:none;}
+    #header .head .search-box {float:none;}
+    .for-input-grop {float: none;display: table;margin: 0px auto;}
+    #menu-section .background .menu ul li:nth-child(2n-1):before{border-left: 0px;} 
+    #menu-section .background .menu ul li:nth-child(-n+3):after {border-top: 1px dashed #ffffff;}
+    #menu-section .background .menu ul li:nth-child(-n+2):after {border-top: 0px;}
+    #menu-section .background .menu ul li:nth-child(4):before{border-left: 1px dashed #fff;}
+    /*#menu-section .background .menu ul li:nth-child(2):before,:nth-child(6):before{border-right: 1px dashed #ffffff;}*/
+    #header .head .detail { margin-top: 100px;}
+    #header .head .detail p{font-size: 22px; float:none;text-align:center;}
+    .navbar-inverse .navbar-collapse{border:none;padding:0px;overflow: hidden;box-shadow: none;}
+    #header .head .navbar-inverse{position: absolute;right: 0px;left: 0px;z-index: 1030;padding: 0px;}
+    
+    .navbar-inverse .navbar-toggle{border-color: #fff;margin-right: 0px;border-radius: 0px;}
+    .navbar-inverse .navbar-toggle .icon-bar{background-color: #fff;}
+    .navbar-inverse .navbar-toggle:hover,.navbar-inverse .navbar-toggle:focus{background: transparent;}
+    #header .navbar .navbar-collapse ul{margin: 0px;background: #fff;border-top: 1px solid #000;}
+    #header .navbar .navbar-collapse ul li a{padding: 10px 15px !important;color: #333333 !important; text-shadow:none;}
+    .navbar-inverse .navbar-nav>li>a{color: #333333 !important; text-shadow:none !important;}
+    #header .head .navbar-inverse .navbar-collapse ul li ul.dropdown-menu li a{color: #333333 !important; text-shadow:none;}
+    #header .head .navbar-inverse .navbar-collapse ul li ul.dropdown-menu{margin-top: 0px;}
+    #header .head .navbar-inverse .navbar-collapse ul li a b{margin-left: 10px;}
+    #menu-section .background .menu ul li{width: 49%;}
+    #menu-section .background .menu ul li.border-left{border-left:1px dashed #fff;}
+    #other-service-section .service-section .service ul li {padding: 8px 22.5px;width: 192px;}
+    #other-service-section .service-section .service ul{padding:0px;}
+    #work-section .work .item{display:block;}
+    #track-application-section .track-application{padding: 48px 15px 50px 15px;}
+    #track-application-section .track-application .application-detail ul{padding-left:0px;}
+    #track-application-section .track-application .application-detail ul li{width: 100%;}
+    #track-application-section .track-application .application-detail ul li input,#track-application-section .track-application .application-detail ul li button{width: 100%;margin-bottom: 15px;}
+    #testimonial-section .testimonial .padding{padding: 0px;}
+    #learn-more-section .learn-more .more ul{padding: 0px;}
+    #footer-section .footer .follow-us,#footer-section .footer .contact-us{width: 100%;padding:0px 15px;}
+    #footer-section .footer .subscribe h4 {width: 100%;}
+    #footer-section .footer .subscribe ul li input{width: 100%;}
+    #footer-section .footer .responsive {width: 50%;float: left;min-height: 105px;display: block;}
+    #footer-section .footer .bottom-menu ul{padding-left: 0px;}
+    #our-partner-section .partner-section .bx-wrapper .bx-prev{left:16px !important;}
+    #our-partner-section .partner-section .bx-wrapper .bx-next {right: 10px !important;}
+    #header .head .navbar-inverse .navbar-header .navbar-brand img {width: 145px;}
+}
+
+
+
+@media only screen and (max-width: 640px){
+    #header .head .search-box select,#header .head .search-box select.product,#header .head .search-box button{width: 100%;border-radius: 4px;margin-bottom: 15px;}    
+    #learn-more-section .learn-more .more ul li{display: block;padding:5px 0px}
+    #footer-section .footer .responsive {width: 100%;float: left;min-height: 100%;min-height: 74px;display: block;}
+    #our-partner-section .partner-section .bx-wrapper .bx-prev{left:4px !important;}
+    #our-partner-section .partner-section .bx-wrapper .bx-next {right: 10px !important;}
+    #our-partner-section .partner-section .bx-wrapper .bx-next{top:26px;right:0px !important;}
+    #our-partner-section .partner-section .bx-wrapper .bx-prev{top:26px;left:0px !important;}
+    .for-bg-trangistion{margin-top:466px;}
+    #header .head .right-side-text {position: absolute;right: 0;margin-top: 21vw;}
+    #header .head .detail {margin-top: 0px;}
+    #header .head .detail p{font-size: 19px;float: none;text-align:center;}
+    #header .head .search-box {clear: both;float:none;z-index: 9;position: relative;}
+}
+@media only screen and (max-width: 480px){
+    .for-bg-trangistion {margin-top: 420px !important;}
+    .for-bg-trangistion img {width: calc(100% + 167px);margin-left: -30px;}
+    .ng-selectbox {display: block;float: none;}
+    .for-input-grop{width: 100%;}
+    .ng-selectbox select {width: 100%;height: 36px;margin-bottom: 10px;border-radius: 3px;}
+    .for-hiden button{border-radius: 3px;width:100%;height: 36px;margin: 0px !important;}
+}
+@media only screen and (max-width: 360px){
+    #header .head .detail {margin-top: 120px !important;}
+    .search-box .select-style,.search-box .product{background: #fff url(../images/down-arrow.png) no-repeat 97% 50%;background-size: 6%;}
+    #header .head .navbar-inverse .navbar-header .navbar-brand img{width: 120px;}
+    #work-section .work .item{display:block;}
+    #testimonial-section .testimonial .padding{padding: 0px;}
+    #testimonial-section .testimonials .user{display: flex;justify-content: center;}
+    #testimonial-section .testimonials .message{display: block;padding-left: 0px !important;}
+    #learn-more-section .learn-more .more ul{padding: 0px;}
+    #learn-more-section .learn-more .more ul li{display: block;padding:5px 0px}
+    #footer-section .footer .contact-us ul li, #footer-section .footer .subscribe ul li {margin-bottom: 10px;}
+    #our-partner-section .partner-section .bx-wrapper .bx-prev{left:4px !important;}
+    #our-partner-section .partner-section .bx-wrapper .bx-next {right: 10px !important;}
+    #our-partner-section .partner-section .bx-wrapper .bx-next{top:18px;right:0px !important;}
+    #our-partner-section .partner-section .bx-wrapper .bx-prev{top:18px;left:0px !important;}
+    #header .head .right-side-text {position: absolute;right: 0;margin-top: 0%;}
+}
+
+@media only screen and (max-width: 320px){
+    #header .head .detail {margin-top: 120px !important;}
+    #other-service-section .service-section .service ul li {width: 50%;padding: 8px 22.5px;}
+    #other-service-section .service-section .service ul{padding-left:0px;}
+    #header .head .navbar-inverse .navbar-header .navbar-brand img{width: 120px;}
+    #header .head .detail {margin-top: 71px;}
+    #work-section .work .item{display:block;}
+    #testimonial-section .testimonial .padding{padding: 0px;}
+    #learn-more-section .learn-more .more ul{padding: 0px;}
+    #learn-more-section .learn-more .more ul li{display: block;padding:5px 0px}
+    #footer-section .footer .contact-us ul li, #footer-section .footer .subscribe ul li {margin-bottom: 10px;}
+    #our-partner-section .partner-section .bx-wrapper .bx-prev{left:4px !important;}
+    #our-partner-section .partner-section .bx-wrapper .bx-next {right: 10px !important;}
+    #our-partner-section .partner-section .bx-wrapper .bx-next{top:18px;right:0px !important;}
+    #our-partner-section .partner-section .bx-wrapper .bx-prev{top:18px;left:0px !important;}
+
+}

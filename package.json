@@ -1,0 +1,20 @@
+{
+  "name": "bank_login",
+  "version": "1.0.0",
+  "description": "Thank you for downloading this Bootstrap theme. This theme was downloaded from UseBotstrap.com",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "compression": "^1.6.2",
+    "ejs": "^2.5.6",
+    "express-session": "^1.15.3",
+    "mailgun-js": "^0.11.2",
+    "method-override": "^2.3.9",
+    "morgan": "^1.8.2"
+  }
+}

@@ -1,0 +1,87 @@
+﻿<div ng-controller="bankdashboardcontroller" class="padding-top-80">
+    <div class="col-lg-12 col-xs-12 padding-bottom-15">
+        <ul class="status-tabs new-status-tabs">
+            <li ng-class="currentStatus == -1 ? 'active' : ''" ng-click="refreshApplication(-1);"><span style="cursor:pointer">ALL</span></li>
+            <!--<li><a ng-click="refreshApplication();">NEW</a></li>-->
+            <li ng-class="currentStatus == 1 ? 'active' : ''" ng-click="refreshApplication(1);"><span style="cursor:pointer">NEW</span></li><!--DOCUMENT UPLOAD-->
+            <li ng-class="currentStatus == 2 ? 'active' : ''" ng-click="refreshApplication(2);"><span style="cursor:pointer">DOCUMENT VERIFIED</span></li><!--DOCUMENT VERIFICATION-->
+            <li ng-class="currentStatus == 3 ? 'active' : ''" ng-click="refreshApplication(3);"><span style="cursor:pointer">IN PROCESS WITH BANK</span></li>
+            <li ng-class="currentStatus == 4 ? 'active' : ''" ng-click="refreshApplication(4);"><span style="cursor:pointer">APPROVED</span></li>
+            <li ng-class="currentStatus == 5 ? 'active' : ''" ng-click="refreshApplication(5);"><span style="cursor:pointer">DISBURSEMENT</span></li>
+            <li ng-class="currentStatus == 6 ? 'active' : ''" ng-click="refreshApplication(6);"><span style="cursor:pointer">REJECTED</span></li>
+        </ul>
+    </div>
+    <div class="col-md-12">
+        <table class="table table-striped table-custom-style" st-table="Applications" st-pipe="callServer">
+            <thead>
+                <tr class='header'>
+                    <th st-skip-natural="true" st-sort="applicationNumber">Application#</th>
+                    <th st-skip-natural="true" st-sort="userName">User Name</th>
+                    <th st-skip-natural="true" st-sort="loanAmount">Loan Amount</th>
+                    <th st-skip-natural="true" st-sort="loanPurpose">Loan Purpose</th>
+                    <th st-skip-natural="true" st-sort="loanType">Loan Type</th>
+                    <th st-skip-natural="true" st-sort="banksLoans">Loan Plan Name</th>
+                    <th st-skip-natural="true" st-sort="status">Status</th>
+                    <th st-skip-natural="true" st-sort="appliedDate" st-sort-default="reverse">Applied Date</th>
+                    <th st-skip-natural="true">Actions</th>
+                </tr>
+            </thead>
+            <tbody ng-show="!isIntialLoad">
+                <tr ng-repeat='a in Applications'>
+                    <td>
+                        <a ui-sref="banksapplicationdetail({ id:a.applicationNumber })"> {{a.applicationNumber}}</a>
+                    </td>
+                    <td>
+                        {{a.userName}}
+                    </td>
+                    <td ng-bind-html="a.loanAmount | INR"></td>
+                    <td>
+                        {{a.loanPurpose}}
+                    </td>
+                    <td>
+                        {{a.loanType}}
+                    </td>
+                    <td>
+                        {{a.banksLoans}}
+                    </td>
+                    <td>
+                        {{a.status}}
+                    </td>
+                    <td>
+                        {{a.appliedDate|date:'dd-MM-yyyy'}}
+                    </td>
+                    <td class="action">
+                        <i class="glyphicon glyphicon-question-sign green"></i><span><a href='#'></a></span>
+                        <i class="glyphicon glyphicon-edit blue"></i><span><a href='#'></a>
+                        <i class="glyphicon glyphicon-remove-circle red"></i><span><a href='#'></a>
+                    </td>
+                </tr>
+            </tbody>
+            <tbody ng-show="isLoading && isIntialLoad">
+            <tr>
+                <td colspan="8" class="text-center">Loading ... </td>
+            </tr>
+        </tbody>
+        <tbody ng-if="Applications.length==0 && !isIntialLoad">
+            <tr>
+                <td colspan="8" class="text-center">No Application found</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td class="text-center" st-pagination="" st-items-by-page="10" colspan="9"></td>
+            </tr>
+        </tfoot>
+            <!--<tbody ng-show="isLoading">
+                <tr>
+                    <td colspan="8" class="text-center">Loading ... </td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td class="text-center" st-pagination="" st-items-by-page="10" colspan="8"></td>
+                </tr>
+            </tfoot>-->
+        </table>
+    </div>
+</div>

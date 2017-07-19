@@ -1,0 +1,177 @@
+<html ng-app="RufeeApp" ng-controller="RufeeController">
+<head>
+    <title ng-if="titlename" ng-bind="titlename + ' | RupeeFin'">Home | RupeeFin</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-control" content="public">
+    <META HTTP-EQUIV="EXPIRES" CONTENT="Mon, 02 Jan 2017 11:12:01 GMT">
+    
+    <!-- New CSS-->
+    <link href="shared/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <!-- font Awesome -->
+    <link href="shared/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <!-- Ionicons -->
+    <link href="shared/css/ionicons.min.css" rel="stylesheet" type="text/css" />
+    <!-- Theme style -->
+    <link href="shared/css/AdminLTE.css" rel="stylesheet" type="text/css" />
+    <!-- Morris chart -->
+    <link href="shared/css/morris/morris.css" rel="stylesheet" type="text/css" />
+    <!-- jvectormap -->
+    <link href="shared/css/jvectormap/jquery-jvectormap-1.2.2.css" rel="stylesheet" type="text/css" />
+    <!-- custom -->
+    <link href="shared/css/custom-AdminLTE.css" rel="stylesheet" type="text/css" />
+     <!-- <link href="shared/css/daterangepicker/daterangepicker-bs3.css" rel="stylesheet" type="text/css" /> -->
+    <!-- <link href="shared/css/iCheck/all.css" rel="stylesheet" type="text/css" /> -->
+     <!-- <link href="shared/css/bxslider.css" rel="stylesheet" type="text/css" /> -->
+    <!-- <link rel="stylesheet" href="shared/css/bootstrap.min.css"> -->
+     <link href="shared/css/helvetica.css" type="text/css" rel="stylesheet"/>
+     <link rel="stylesheet" type="text/css" href="shared/css/bxslider.css"/>
+     <!-- <link href="shared/css/custom-AdminLTE.css" rel="stylesheet" type="text/css"/> -->
+     <link href="shared/css/animations.css" rel="stylesheet" type="text/css"/>
+    <!-- -->
+   
+    <!-- <link href="shared/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" /> -->
+    <!-- <link href="shared/css/rupeefincombined.min.css" rel="stylesheet" type="text/css" /> -->
+    <!-- General Style These are combined into rupeefincombined.css-->
+    
+    <link href="shared/css/jquery-ui.min.css" rel="stylesheet" type="text/css" />
+    <!-- <link href="shared/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="shared/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="shared/css/animate.min.css" rel="stylesheet" type="text/css" />
+    <link href="shared/css/slider-def.min.css" rel="stylesheet" type="text/css" />
+    <link href="shared/css/jquery-ui.min.css" rel="stylesheet" type="text/css" />
+    <link href="shared/css/select2.min.css" rel="stylesheet" type="text/css" />
+    <link href="shared/css/fontface.css" rel="stylesheet" type="text/css" />
+    <link href="shared/css/nv.d3.min.css" rel="stylesheet" type="text/css" />
+    <link href="shared/css/angular-chart.min.css" rel="stylesheet" type="text/css" />
+    <link href="shared/css/ion.rangeSlider.min.css" rel="stylesheet" type="text/css" />
+    <link href="shared/css/rzslider.min.css" rel="stylesheet" type="text/css" />
+    <link href="shared/css/ng-slim-scroll.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="shared/js/angular-toastr/dist/angular-toastr.min.css">
+    <link rel="stylesheet" href="shared/js/angular-ui-bootstrap/dist/ui-bootstrap-csp.css"> -->
+    
+    <!-- General Style These are combined into rupeefincombined.css-->
+    
+    <!-- <link href="shared/css/style.css" rel="stylesheet" type="text/css" /> -->
+    <!-- <link rel="stylesheet" href="shared/css/site.css"> -->
+    <!-- <link href="shared/css/media.css" type="text/css" rel="stylesheet"/> -->
+    
+    <script type="text/javascript" src="shared/services/commonUtility.js"></script>
+    
+<!-- 
+    <script type="text/javascript">
+        var serverdata = <%-JSON.stringify(val)%>;
+    </script> -->
+</head>
+
+<body>
+    <div>
+        <toaster-container toaster-options="{'time-out': 3000, 'close-button':true, 'animation-class': 'toast-top-right'}"></toaster-container>
+        <div ui-view="header"></div>
+        
+        <div ui-view="content"></div>
+        
+        <div ui-view="footer"></div>
+    </div>
+
+    <!-- Vendor: Angular, followed by our custom Javascripts -->
+    <!--<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-cookies.js"></script>-->
+    <script src="shared/js/jquery-1.12.3.js"></script>
+     <!-- jQuery UI 1.10.3 -->
+        <!-- <script src="js/jquery-ui-1.10.3.min.js" type="text/javascript"></script> -->
+    <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script> -->
+    <!-- <script src="shared/js/jquery/dist/jquery.min.js"></script> -->
+    <!-- <script src="shared/js/daterangepicker/daterangepicker.js" type="text/javascript"></script> -->
+     <!-- <script src="shared/js/input-mask/jquery.inputmask.date.extensions.js" type="text/javascript"></script> -->
+    <script src="shared/js/morris/morris.min.js" type="text/javascript"></script>
+    <script src="shared/js/angular/angular.min.js"></script>
+    <script src="shared/js/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="shared/js/angular-cookies/angular-cookies.min.js"></script>
+    <script src="shared/js/angular-animate/angular-animate.js"></script>
+     <script type="text/javascript" href="shared/js/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js"></script>
+    <!-- <script src="shared/js/bootstrap.min.js"></script> -->
+     <script src="shared/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="shared/js/angular-toastr/dist/angular-toastr.min.js"></script>
+    <script src="shared/js/oclazyload/dist/ocLazyLoad.min.js"></script>
+    <script src="shared/js/jquery-ui.js"></script>
+    <script src="shared/js/angular-ui-bootstrap/dist/ui-bootstrap.min.js"></script>
+
+    <!-- Our Website Javascripts -->
+    <script src="app.module.js"></script>
+    <script src="app.route.js"></script>
+    <script src="app.controller.js"></script>
+    <!-- <script src="shared/services/loanService.js"></script> -->
+    <script src="shared/services/handleResponseService.js"></script>
+    
+    <script src="shared/services/otpservice.js"></script>
+    <script src="shared/services/authenticationservice.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js?onload=vcRecaptchaApiLoaded&render=explicit" async defer></script>
+    <script src="shared/js/angular-recaptcha/angular-recaptcha.min.js"></script>
+    <script src="shared/js/angular-slimscroll/ngSlimscroll.min.js"></script>
+    
+    <script src="shared/services/usersService.js"></script>
+    
+    <script src="components/common/loginmodelcontroller.js"></script>
+    <!-- <script src="components/auth/workCapController.js"></script> -->
+    <!--<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKInMZP3SzeLC6D4GmLB34wl7y-Ralizc" type="text/javascript"></script>-->
+    <!-- <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKInMZP3SzeLC6D4GmLB34wl7y-Ralizc&libraries=places" ></script> -->
+
+    <script src="shared/services/bankauthenticationservice.js"></script>
+    <script src="shared/js/angular-charts/chart.js"></script>
+
+    <!-- Social media scripts 
+    <script async defer src='//connect.facebook.net/en_US/sdk.js'></script>
+    <script async src='https://apis.google.com/js/platform.js'></script>
+    <script src='shared/services/fbAuthService.js'></script>
+    <script src='shared/services/googleAuthService.js'></script>
+    <script src='shared/services/linkedinAuthService.js'></script> -->
+    <!-- <script src='shared/services/usersService.js'></script> -->
+    <!--<script src='shared/services/twitterService.js'></script>-->
+    <!-- <a ui-sref="bankslogin">hghjhjjjjjjjjjjjj</a> -->
+    <!-- Change Password Model -->
+  <!-- Change Password Model -->
+    <script type="text/ng-template" id="changePWDModalContent.html">
+        <div class="modal-header">
+            <h4 class="modal-title">Change Password
+                <button class="close" type="button" ng-click="cancel()">x</button>
+            </h4>
+        </div>
+        <div class="modal-body">
+            <form name="chngepwdform" id="chngepwdform" ng-submit="ok()" class="input-controls-group">
+                <div class="input-control">
+                    <label class="col-lg-12 col-xs-12 no-padding">Password</label>
+                    <input type="password" id="oldpassword" ng-model="changepwd.password" placeholder="OLD PASSWORD" name="oldpassword" readonly onfocus="this.removeAttribute('readonly');" autocomplete="off" maxlength="20" class="col-lg-12 col-xs-12 input-text" 
+                        ng-minlength="8" ng-maxlength="20" required>
+                    <!-- <span class="error" ng-show="!chngepwdform.oldpassword.$error.required && (chngepwdform.oldpassword.$error.minlength || chngepwdform.oldpassword.$error.maxlength) && chngepwdform.oldpassword.$dirty">Passwords must be between 8 and 20 characters.</span>
+                    <span class="error" ng-show="!chngepwdform.oldpassword.$error.required && !chngepwdform.oldpassword.$error.minlength && !chngepwdform.oldpassword.$error.maxlength && chngepwdform.oldpassword.$error.pattern && chngepwdform.oldpassword.$dirty">
+                        Must contain one lower &amp; uppercase letter, and one non-alpha character (a number or a symbol.)</span> -->
+                </div>
+                <div class="input-control">
+                    <label class="col-lg-12 col-xs-12 no-padding">New Password</label>
+                    <input type="password" id="password" placeholder="PASSWORD" name="password" readonly onfocus="this.removeAttribute('readonly');" autocomplete="off" maxlength="20" ng-model="changepwd.new_password" class="col-lg-12 col-xs-12 input-text"
+                        valid-password-d="changepwd.password" ng-minlength="8" ng-maxlength="20" ng-pattern="/(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z])/" required data-ng-change="changepwd.new_password_c = ''"
+                    />
+                    <span class="error ng-hide" ng-show="!chngepwdform.password.$error.required && chngepwdform.password.$error.doMatch && chngepwdform.password.$dirty">please user different password other than current</span>
+                    <span class="error ng-hide" ng-show="!chngepwdform.password.$error.required && (chngepwdform.password.$error.minlength || chngepwdform.password.$error.maxlength) && chngepwdform.password.$dirty">Passwords must be between 8 and 20 characters.</span>
+                    <span class="error ng-hide" ng-show="!chngepwdform.password.$error.required && !chngepwdform.password.$error.minlength && !chngepwdform.password.$error.maxlength && chngepwdform.password.$error.pattern && chngepwdform.password.$dirty">
+                        Must contain one lower &amp; uppercase letter, and one non-alpha character (a number or a symbol.)</span>
+                </div>
+                <div class="input-control">
+                    <label class="col-lg-12 col-xs-12 no-padding">Confirm New Password</label>
+                    <input type="password" id="password_c" placeholder="CONFIRM PASSWORD" maxlength="20" name="password_c" readonly onfocus="this.removeAttribute('readonly');" autocomplete="off" ng-model="changepwd.new_password_c" class="col-lg-12 col-xs-12 input-text"
+                    valid-password-c="changepwd.new_password" required />
+                    <span class="error ng-hide" ng-show="!chngepwdform.password_c.$error.required && chngepwdform.password_c.$error.noMatch && chngepwdform.password_c.$dirty">Passwords do not match.</span>
+                </div>
+                <div class="clearfix"></div>
+            </form>
+        </div>
+        <div class="modal-footer input-controls-group">
+            <div class="input-control">
+                <input type="submit" ng-disabled="chngepwdform.$invalid" class="btn btn-primary" form="chngepwdform" value="Continue" />&nbsp;
+                <input type="button" class="btn btn-default" ng-click="cancel()" value="Cancel" / >
+            </div>
+        </div>
+    </script>
+</body>
+
+</html>

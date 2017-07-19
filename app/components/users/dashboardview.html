@@ -1,0 +1,51 @@
+<div ng-controller="UserDashboardController" class="padding-top-80">
+    <div class="col-md-12" style="min-height:400px">
+        <table class='table table-striped table-custom-style'>
+            <thead>
+                <tr class='header'>
+                    <th>Application#</th>
+                    <th>Bank Name</th>
+                    <th>Loan Type</th>
+                    <th>Loan Plan Name</th>
+                    <th>Loan Amount</th>
+                    <th>Loan Purpose</th>
+                    <th>Documents (count)</th>
+                    <th>Applied Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat='a in Applications'>
+                    <td style="text-align: center;">
+                        <a ng-if="a.loanType == 'Personal Loan'" ui-sref="loan-documents({ appNum:a.applicationNumber,id:a.applicationId })"> {{a.applicationNumber}}</a>
+                        <a ng-if="a.loanType == 'Education Loan'" ui-sref="educationloan-documents({ appNum:a.applicationNumber,id:a.applicationId })"> {{a.applicationNumber}}</a>
+                    </td>
+                    <td>
+                        {{a.bankName}}
+                    </td>
+                    <td>
+                        {{a.loanType}}
+                    </td>
+                    <td>
+                        {{a.banksLoans}}
+                    </td>
+                    <td ng-if="a.loanType == 'Personal Loan'" style="text-align: right;" ng-bind-html="a.loanAmount| INR"></td>
+                    <td ng-if="a.loanType == 'Education Loan'" style="text-align: right;" ng-bind-html="a.loanAmount| INR"></td>
+                    <td>
+                        {{a.loanPurpose}}
+                    </td>
+                    <td style="text-align: center;">
+                        <span>{{a.documentsCount}}</span>
+                    </td>
+                    <td style="text-align: center;">
+                        {{a.appliedDate|date:'dd-MM-yyyy'}}
+                    </td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td class="text-center" colspan="8"></td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>

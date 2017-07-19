@@ -1,0 +1,727 @@
+<div class="skin-black" ng-controller="BankAppDetailController as BAC">
+    <div class="wrapper row-offcanvas row-offcanvas-left">
+        <!-- Left side column. contains the logo and sidebar -->
+        <aside class="left-side sidebar-offcanvas">                
+            <!-- sidebar: style can be found in sidebar.less -->
+            <section class="sidebar">   
+                <form action="#" method="get" class="sidebar-form">
+                    <div class="input-group">
+                        <input type="text" name="q" class="form-control" placeholder="Search..."/>
+                        <span class="input-group-btn">
+                            <button type='submit' name='seach' id='search-btn' class="btn btn-flat"><i class="fa fa-search"></i></button>
+                        </span>
+                    </div>
+                </form>
+                <!-- /.search form -->
+                <!-- sidebar menu: : style can be found in sidebar.less -->
+                <ul class="sidebar-menu">
+                    <li>
+                        <a ui-sref="banksdashboard">
+                            <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+                        </a>
+                    </li>
+                   <!--  <li>
+                        <a href="../widgets.html">
+                            <i class="fa fa-th"></i> <span>Widgets</span> <small class="badge pull-right bg-green">new</small>
+                        </a>
+                    </li>
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-bar-chart-o"></i>
+                            <span>Charts</span>
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="../charts/morris.html"><i class="fa fa-angle-double-right"></i> Morris</a></li>
+                            <li><a href="../charts/flot.html"><i class="fa fa-angle-double-right"></i> Flot</a></li>
+                            <li><a href="../charts/inline.html"><i class="fa fa-angle-double-right"></i> Inline charts</a></li>
+                        </ul>
+                    </li>
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-laptop"></i>
+                            <span>UI Elements</span>
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="../UI/general.html"><i class="fa fa-angle-double-right"></i> General</a></li>
+                            <li><a href="../UI/icons.html"><i class="fa fa-angle-double-right"></i> Icons</a></li>
+                            <li><a href="../UI/buttons.html"><i class="fa fa-angle-double-right"></i> Buttons</a></li>
+                            <li><a href="../UI/sliders.html"><i class="fa fa-angle-double-right"></i> Sliders</a></li>
+                            <li><a href="../UI/timeline.html"><i class="fa fa-angle-double-right"></i> Timeline</a></li>
+                        </ul>
+                    </li>
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-edit"></i> <span>Forms</span>
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="../forms/general.html"><i class="fa fa-angle-double-right"></i> General Elements</a></li>
+                            <li><a href="../forms/advanced.html"><i class="fa fa-angle-double-right"></i> Advanced Elements</a></li>
+                            <li><a href="../forms/editors.html"><i class="fa fa-angle-double-right"></i> Editors</a></li>                                
+                        </ul>
+                    </li>
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-table"></i> <span>Tables</span>
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="../tables/simple.html"><i class="fa fa-angle-double-right"></i> Simple tables</a></li>
+                            <li><a href="../tables/data.html"><i class="fa fa-angle-double-right"></i> Data tables</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="../calendar.html">
+                            <i class="fa fa-calendar"></i> <span>Calendar</span>
+                            <small class="badge pull-right bg-red">3</small>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../mailbox.html">
+                            <i class="fa fa-envelope"></i> <span>Mailbox</span>
+                            <small class="badge pull-right bg-yellow">12</small>
+                        </a>
+                    </li>
+                    <li class="treeview active">
+                        <a href="#">
+                            <i class="fa fa-folder"></i> <span>Examples</span>
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li class="active"><a href="invoice.html"><i class="fa fa-angle-double-right"></i> Invoice</a></li>
+                            <li><a href="login.html"><i class="fa fa-angle-double-right"></i> Login</a></li>
+                            <li><a href="register.html"><i class="fa fa-angle-double-right"></i> Register</a></li>
+                            <li><a href="lockscreen.html"><i class="fa fa-angle-double-right"></i> Lockscreen</a></li>
+                            <li><a href="404.html"><i class="fa fa-angle-double-right"></i> 404 Error</a></li>
+                            <li><a href="500.html"><i class="fa fa-angle-double-right"></i> 500 Error</a></li>                                
+                            <li><a href="blank.html"><i class="fa fa-angle-double-right"></i> Blank Page</a></li>
+                        </ul>
+                    </li> -->
+                </ul>
+            </section>
+            <!-- /.sidebar -->
+        </aside>
+        <!-- Left side column. contains the logo and sidebar -->
+        <!-- Right side column. Contains the navbar and content of the page -->
+        <aside class="right-side">                
+            <!-- Content Header (Page header) -->
+            <div class="col-md-6 col-sm-6 col-xs-12 application-title" style="padding-left: 60px;">
+                <h1>
+                    Application No:
+                    <span> {{appDetail.applicationNumber}}</span>
+                </h1>
+            </div>
+            <section class="row content-header">
+                
+               <!--  <div style="width:100%" ng-repeat="ans in appAnswers" ng-if="ans.questionLabel == 'Contact'" style="padding:5px 10px">
+                    <div style="width:100%" ng-repeat="(key, value) in ans.answers">
+                        <span class="font-weight-bold">{{key}}:</span> {{value}}
+                    </div>
+                </div> -->
+                <div class="col-md-6 col-sm-6 col-xs-12 no-padding">
+                <div class="header-button pull-right">
+                    <button id="btn1_verified" class="btn btn-info btn-flat" data-toggle="modal" data-target="#varify">verified</button>
+                    <button id="btn1_Approved" class="btn btn-success btn-flat" data-toggle="modal" data-target="#approve">Approved</button>
+                    <button id="btn1_Disbursed" class="btn btn-warning btn-flat" data-toggle="modal" data-target="#disburse">Disbursed</button>
+                    <button id="btn1_Rejected" class="btn btn-danger btn-flat" data-toggle="modal" data-target="#reject">Rejected</button>
+                </div>
+                </div>
+            </section>
+
+            <section class="clearfix box-1">
+                <div class="col-md-12 col-sm-12 col-xs-12 no-padding" ng-repeat="ans in appAnswers"  ng-if="ans.questionLabel == 'Contact'">
+                    <!-- Widget: user widget style 1 -->
+                    <div class="box box-widget widget-user-2 no-margin">
+                        <!-- Add the bg color to the header using any of the bg-* classes -->
+                        <div class="box-footer no-padding">
+                            <ul class="nav nav-stacked" ng-repeat="(key, value) in ans.answers">
+                                <li><a>{{key}}:<span class="pull-right badge bg-grey address-formst">{{value}}</a></span></li>
+                               <!--  <li><a>Mobile:<span class="pull-right badge bg-grey address-formst"></span></a></li>
+                                <li><a>Email:<span class="pull-right badge bg-grey"></span></a></li>
+                                <li><a>Emai:<span class="pull-right badge bg-grey"></span></a></li> -->
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- /.widget-user -->
+                </div>
+            </section>
+            <!-- Main content -->
+            <section class="content invoice clearfix"> 
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs" role="tablist">
+                    <li role="presentation" class="active"><a href="#application" aria-controls="home" role="tab" data-toggle="tab">Application Detail</a></li>
+                    <li role="presentation"><a href="#documents" aria-controls="profile" role="tab" data-toggle="tab">Document</a></li>
+                    <li role="presentation" ng-if="appDetail.loanType == 'Personal Loan'"><a href="#salaryinfo" aria-controls="profile" role="tab" data-toggle="tab">Salary Detail</a></li>
+                    <li role="presentation" ng-if="appDetail.loanType == 'Personal Loan'"><a href="#bankstate" aria-controls="profile" role="tab" data-toggle="tab">Bank Statement</a></li>
+                    <li role="presentation" ng-if="appDetail.loanType == 'Personal Loan'"><a href="#emicalc" aria-controls="profile" role="tab" data-toggle="tab">EMI Calculation</a></li>
+                    
+                </ul>
+
+                <!-- Tab panes -->
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane active" id="application">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <!-- Widget: user widget style 1 -->
+                                <div class="box box-widget widget-user-2">
+                                    <!-- Add the bg color to the header using any of the bg-* classes -->
+                                    <div class="widget-user-header bg-yellow">
+                                        <!-- /.widget-user-image -->
+                                        <h3 class="widget-user-username">Contact Detail</h3>
+                                    </div>
+                                    <div class="box-footer no-padding" ng-repeat="contact in ContactArray">
+                                        <ul class="nav nav-stacked" ng-repeat="(key, value) in contact">
+                                        <li><a>{{key}}:<span class="pull-right badge bg-grey address-formst">{{value}}</a></span></li>
+                                          
+                                        </ul>
+
+                                    </div>
+                                </div>
+                                <!-- /.widget-user -->
+                            </div>
+                            <div class="col-md-6" ng-if="LoanArray.length > 0">
+                                <!-- Widget: user widget style 1 -->
+                                <div class="box box-widget widget-user-2" >
+                                    <!-- Add the bg color to the header using any of the bg-* classes -->
+                                    <div class="widget-user-header bg-red">
+                                        <!-- /.widget-user-image -->
+                                        <h3 class="widget-user-username">Loan Detail</h3>
+                                    </div>
+                                    <div class="box-footer no-padding" ng-repeat="loan in LoanArray">
+                                        <ul class="nav nav-stacked" ng-repeat="(key, value) in loan">
+                                            <li><a>{{key}}:<span class="pull-right badge bg-grey address-formst">{{value}}</a></span></li>
+                                           
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!-- /.widget-user -->
+                            </div>
+                            <div class="col-md-6" ng-if="LoanArray.length <= 0">
+                                <!-- Widget: user widget style 1 -->
+                                <div class="box box-widget widget-user-2" >
+                                    <!-- Add the bg color to the header using any of the bg-* classes -->
+                                    <div class="widget-user-header bg-red">
+                                        <!-- /.widget-user-image -->
+                                        <h3 class="widget-user-username">Education Detail</h3>
+                                    </div>
+                                    <div class="box-footer no-padding" ng-repeat="company in EducateArray" ng-if="appDetail.loanType == 'Education Loan'">
+                                        <ul class="nav nav-stacked" ng-repeat="(key, value) in company">
+                                            <li><a>{{key}}:<span class="pull-right badge bg-grey address-formst">{{value}}</a></span></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!-- /.widget-user -->
+                            </div>
+                        </div>
+                        <div class="row" ng-hide="LoanArray.length <= 0">
+                            <div class="col-md-6">
+                                <!-- Widget: user widget style 1 -->
+                                <div class="box box-widget widget-user-2">
+                                    <!-- Add the bg color to the header using any of the bg-* classes -->
+                                    <div class="widget-user-header bg-green">
+                                        <!-- /.widget-user-image -->
+                                        <h3 ng-show="appDetail.loanType == 'Personal Loan'" class="widget-user-username">Company Detail</h3>
+                                        <h3 ng-show="appDetail.loanType == 'Education Loan'" class="widget-user-username">Education Detail</h3>
+                                    </div>
+                                    <div class="box-footer no-padding" ng-repeat="company in CompanyArray" ng-if="appDetail.loanType == 'Personal Loan'">
+                                        <ul class="nav nav-stacked" ng-repeat="(key, value) in company">
+                                            <li><a>{{key}}:<span class="pull-right badge bg-grey address-formst">{{value}}</a></span></li>
+                                        </ul>
+                                    </div>
+                                    <div class="box-footer no-padding" ng-repeat="company in EducateArray" ng-if="appDetail.loanType == 'Education Loan'">
+                                        <ul class="nav nav-stacked" ng-repeat="(key, value) in company">
+                                            <li><a>{{key}}:<span class="pull-right badge bg-grey address-formst">{{value}}</a></span></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!-- /.widget-user -->
+                            </div>
+                            <div class="col-md-6" ng-if="appDetail.loanType == 'Personal Loan'">
+                                <!-- Widget: user widget style 1 -->
+                                <div class="box box-widget widget-user-2">
+                                    <!-- Add the bg color to the header using any of the bg-* classes -->
+                                    <div class="widget-user-header bg-aqua">
+                                        <!-- /.widget-user-image -->
+                                        <h3 class="widget-user-username">Eligible Loan Amount</h3>
+                                    </div>
+                                    <div class="box-footer_eligibleLoan no-padding">
+                                        <div ng-if="appDetail.loanType == 'Personal Loan'" class="content-wrapper pull-right col-md-12 padding-10 col-sm-12 col-xs-12">
+                                            <div class="text-center">
+                                                <h4>
+                                                    <label>Eligible Loan Amount: <span ng-bind-html="eligibleLoanAmnt | INR"></span></label>
+                                                </h4>
+                                            </div>
+                                            <canvas id="pie" class="chart chart-pie" chart-data="data" chart-labels="labels" chart-colours="colours"></canvas>
+                                            <div class="clearfix"></div>
+                                            <div class="pie-chart-notation">
+                                                <div class="col-md-12">
+                                                    <div class="pull-left">
+                                                        <label><span class="orange-squre"></span>Avg. Monthly Salary Earned</label>
+                                                    </div>
+                                                    <div class="pull-right">
+                                                        <label><span ng-bind-html="appSalaryEarned | INR"></span></label>
+                                                    </div>
+                                                    <div class="clearfix"></div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="pull-left">
+                                                        <label><span class="green-squre"></span>Avg. Monthly Expenses</label>
+                                                    </div>
+                                                    <div class="pull-right">
+                                                        <label><span ng-bind-html="appExpenses | INR"></span></label>
+                                                    </div>
+                                                    <div class="clearfix"></div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="pull-left">
+                                                        <label><span class="red-squre"></span>Total Monthly EMI(s)</label>
+                                                    </div>
+                                                    <div class="pull-right">
+                                                        <label><span ng-bind-html="appTotalEMIs | INR"></span></label>
+                                                    </div>
+                                                </div>
+                                                <div class="clearfix"></div>
+                                            </div>
+                                            <div class="pie-chart-notation notation-border col-md-12">
+                                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                                    <div class="pull-left">
+                                                        <label>Total EMI Affordability</label>
+                                                    </div>
+                                                    <div class="pull-right text-right col-md-3 col-sm-3 col-xs-3 no-padding">
+                                                        <label><span ng-bind-html="emi | INR"></span></label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                                    <div class="pull-left">
+                                                        <label>Tenure(In Months)</label>
+                                                    </div>
+                                                    <div class="pull-right text-right col-md-3 col-sm-3 col-xs-3 no-padding">
+                                                        <input type="text" ng-model="tenure" name="tenure" class="col-md-3 float-none width-100" ng-keyup="calculateLoanEligibility()" required only-digits />
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12  col-sm-12 col-xs-12">
+                                                    <div class="pull-left">
+                                                        <label>Rate of Interest(%)</label>
+                                                    </div>
+                                                    <div class="pull-right text-right col-md-3 col-sm-3 col-xs-3 no-padding">
+                                                        <input type="text" ng-model="BAC.rateOfInterest" name="rateOfInterest" class="col-md-3 float-none width-100" readonly onfocus="this.removeAttribute('readonly');" autocomplete="off" maxlength="10" required only-digits ng-keyup="calculateLoanEligibility()" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                                    <div class="pull-left">
+                                                        <label>Loan Repayment(%)</label>
+                                                    </div>
+                                                    <div class="pull-right text-right col-md-3 col-sm-3 col-xs-3 no-padding">
+                                                        <input type="text" ng-model="loanRepaymentPercentage" name="loanRepaymentPercentage" class="col-md-3 float-none width-100" readonly onfocus="this.removeAttribute('readonly');" autocomplete="off" maxlength="10" required only-digits ng-keyup="calculateLoanEligibility()" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- /.widget-user -->
+                            </div>
+                        </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="documents">
+                        <div class="tab-pane active table-responsive"> <!--removed>> uib-tab-content-transclude="tab"-->
+                            <table class="table table-bordered"  ng-show ="appDocuments.length > 0">
+                                <thead>
+                                    <tr class="document-type-hover">
+                                        <th>Document Type</th>
+                                        <th>Document Name</th>
+                                        <th class="text-center">Last Updated Date</th>
+                                        <th class="text-center">Final Copy</th>
+                                    </tr>
+                                </thead>
+                                <tbody  ng-repeat="doc in appDocuments">
+                                    <tr ng-repeat="docs in doc.documents" ng-if="doc.documents.length > 0">
+                                        <td>{{docs.documentType}}</td>
+                                        <td ng-if="docs.documentTypeId !=4  && docs.documentTypeId != 5"><a target="_blank" href="/documents/personal-loan/{{appid}}/{{docs.documentFileName}}">{{docs.documentName}}</a></td>
+                                        <td class="text-center">{{docs.documentUploadedDate|date:'dd-MM-yyyy hh:mm a'}}</td>
+                                        <td class="text-center" ng-class="docs.documentIsActive == 1 ? 'font-green':'font-red'">{{docs.documentIsActive == 1 ? 'Yes' : 'No'}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <!-- <tbody ng-show="!appDocuments.length"> -->
+                            <h3 ng-show="!appDocuments.length">No Documents Uploaded Till Now!</h3>
+                             <button class="btn btn-info btn-flat" ng-show="!appDocuments.length" data-toggle="modal" data-target="#sendWarningEmail">Send Email</button>
+                            <!-- </tbody> -->
+                        </div>
+                    </div>
+                    <div role="tabpanel" ng-if="appDetail.loanType == 'Personal Loan'" class="tab-pane" id="salaryinfo">
+                        <div class="tab-pane active table-responsive"> <!--removed>> uib-tab-content-transclude="tab"-->
+                            <table class="table table-bordered margin-top-20">
+                                <thead>
+                                    <tr>
+                                        <th>Month</th>
+                                        <th>Year</th>
+                                        <th>Gross Salary</th>
+                                        <th>Net Salary</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="sal in appSalary">
+                                        <td>{{monthNames[sal.month - 1]}}</td>
+                                        <td>{{sal.year}}</td>
+                                        <td ng-bind-html="sal.grossSalary | INR"></td>
+                                        <td ng-bind-html="sal.netSalary | INR"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div role="tabpanel" ng-if="appDetail.loanType == 'Personal Loan'" class="tab-pane" id="bankstate">
+                        <div class="tab-pane active table-responsive"> <!--removed>> uib-tab-content-transclude="tab"-->
+                            <table class="table table-bordered no-margin">
+                                <thead>
+                                    <tr>
+                                        <th>Transaction Date</th>
+                                        <th>Description</th>
+                                        <th>Credit</th>
+                                        <th>Debit</th>
+                                        <th>Balance</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="stmnt in appStatements">
+                                        <td>{{stmnt.transactionDate|date:'dd-MM-yyyy'}}</td>
+                                        <td>{{stmnt.description}}</td>
+                                        <td ng-bind-html="stmnt.creditAmount | INR"></td>
+                                        <td ng-bind-html="stmnt.debitAmount | INR"></td>
+                                        <td ng-bind-html="stmnt.balance | INR"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div role="tabpanel" ng-if="appDetail.loanType == 'Personal Loan'" class="tab-pane" id="emicalc">
+                        <div class="tab-pane active table-responsive"> <!--removed>> uib-tab-content-transclude="tab"-->
+                            <!-- <div class="margin-top-20"></div> -->
+                                <div class="col-md-12 col-xs-12">
+                                    <div class="col-md-5 col-xs-5">
+                                        <form name="emicalculatorform" role="form" ng-submit="calculateEMI()" class="input-controls-group">
+                                            <div class="col-md-12">
+                                                <div class="col-md-12">
+                                                    <div class="range-slider">
+                                                        <div class="range-popup">
+                                                            <label for="loanAmount">Loan Amount:</label>
+                                                            <ion-range-slider min="sliderLoanOptions.floor"
+                                                                              max="sliderLoanOptions.ceil" step="10000"
+                                                                              from="eligibleLoanAmnt" grid="true" prefix="&#8377;"
+                                                                              ansparam="'eligibleLoanAmnt'" cbfn="onFinishFn"></ion-range-slider>
+                                                        </div>
+                                                    </div>
+                                                    <div class="range-slider">
+                                                        <div class="range-popup">
+                                                            <label for="tenure">Tenure(In Months):</label>
+                                                            <ion-range-slider min="sliderTenureOptions.floor"
+                                                                              max="sliderTenureOptions.ceil" step="1"
+                                                                              from="tenure" grid="true" ansparam="'tenure'"
+                                                                              cbfn="onFinishFn"></ion-range-slider>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12 row">
+                                                        <div class="col-md-12 row">
+                                                            <div class="input-control">
+                                                                <label for="rateofinterest">Interest Rate in %:</label>
+                                                                <input type="text" ng-model="BAC.rateOfInterest" name="rateOfInterest" readonly onfocus="this.removeAttribute('readonly');" autocomplete="off" maxlength="10" class="col-lg-12 col-xs-12 input-text" required only-digits />
+                                                                <span ng-show="rateOfInterest.$error.required && rateOfInterest.$dirty">required</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12 row">
+                                                        <div class="col-md-12 row">
+                                                            <div class="input-control">
+                                                                <label for="processingfeespercentage">Processing Fees:(% of loan amount)</label>
+                                                                <input type="text" ng-model="BAC.processingFeesPercentage" name="processingFeesPercentage" class="col-lg-12 col-xs-12 input-text" required only-digits />
+
+                                                                <span ng-show="processingFeesPercentage.$error.required && processingFeesPercentage.$dirty">required</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="input-control">
+                                                        <input type="submit" value="Calculate" slide-toggle="#dvProcessedData" />
+                                                    </div>
+                                                </div>
+                                                <div class="clearfix"></div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="col-md-7 col-xs-7">
+                                        <div class="col-md-12">
+                                            <div class="content-wrapper-emi pull-right col-md-12 padding-10 col-sm-12 col-xs-12">
+                                                <div class="text-center">
+                                                    <h4>
+                                                        <label>Break-up of all total amount payable</label>
+                                                    </h4>
+                                                </div>
+                                                <canvas id="pie" class="chart chart-pie" chart-data="dataEMI" chart-labels="labelsEMI" chart-colours="coloursEMI"></canvas>
+                                                <div class="clearfix"></div>
+                                                <div class="pie-chart-notation">
+                                                    <div>
+                                                        <div class="pull-left">
+                                                            <label><span class="orange-squre"></span>Loan Amount</label>
+                                                        </div>
+                                                        <div class="pull-right">
+                                                            <label ng-bind-html="eligibleLoanAmnt | INR"></label>
+                                                        </div>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                    <div>
+                                                        <div class="pull-left">
+                                                            <label><span class="green-squre"></span>Total Interest Due</label>
+                                                        </div>
+                                                        <div class="pull-right">
+                                                            <label ng-bind-html="totalInterest | INR"></label>
+                                                        </div>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                    <div>
+                                                        <div class="pull-left">
+                                                            <label><span class="red-squre"></span>Processing Fee</label>
+                                                        </div>
+                                                        <div class="pull-right">
+                                                            <label ng-bind-html="processingFees | INR"></label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12  col-xs-12" ng-show="showProcessedData">
+                                    <div class="col-md-12 text-center">
+                                        <h1>
+                                            <label>Monthly Loan EMI:&nbsp;</label><label ng-model="emi" class="emi-text" ng-bind-html="emi | INR"></label>
+                                        </h1>
+                                        <h4>
+                                            <label>Monthly amount paid break-ups</label>
+                                        </h4>
+                                    </div>
+                                    <div class="clearfix">&nbsp;</div>
+                                </div>
+                                <div class="col-md-12  col-xs-12 row" ng-show="showProcessedData">
+                                    <div class="col-md-12">
+                                        <div class="clearfix col-md-12">
+                                            <div class="input-control pull-right">
+                                                <span class="cursor-pointer" ng-click="tableToExcel('emitable', 'Export Data', 'excel');"><i class="fa fa-print" aria-hidden="true"></i></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="col-md-12 emi-container">
+                                            <div ng-slimscroll height="330px">
+                                                <table ng-show='Amortizations.length > 0' class='table table-bordered no-margin' id="emitable">
+                                                    <thead>
+                                                        <tr class='header'>
+                                                            <th>Month#</th>
+                                                            <th>Principal Paid(A)</th>
+                                                            <th>Interest Paid(B)</th>
+                                                            <th>Total Payment (A+B)</th>
+                                                            <th>Balance</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr ng-repeat='a in Amortizations'>
+                                                            <td>{{a.MonthNumber}}</td>
+                                                            <td ng-bind-html="a.Principal | INR"></td>
+                                                            <td ng-bind-html="a.Interest | INR"></td>
+                                                            <td ng-bind-html="a.Amortization | INR"></td>
+                                                            <td ng-bind-html="a.PrincipalBalance | INR"></td>
+                                                        </tr>
+                                                    </tbody>
+                                                    <tfooter>
+                                                        <tr>
+                                                            <td><b>Total</b></td>
+                                                            <td></td>
+                                                            <td><b ng-bind-html="totalInterestPayable | INR"></b></td>
+                                                            <td><b ng-bind-html="totalPrincipal | INR"></b></td>
+                                                            <td><b ng-bind-html="totalAmortization | INR"></b></td>
+                                                        </tr>
+                                                    </tfooter>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            <!-- </div> -->
+                        </div>
+                    </div>
+                </div>
+
+            </section><!-- /.content -->
+             <section class="row content-header">
+                    <div class="col-md-6 col-sm-6 col-xs-12 application-title no-padding">
+                        <div class="header-button">
+                            <button id="btn_verified" class="btn btn-info btn-flat" data-toggle="modal" data-target="#varify">verified</button>
+                            <button id="btn_Approved" class="btn btn-success btn-flat" data-toggle="modal" data-target="#approve">Approved</button>
+                            <button id="btn_Disbursed" class="btn btn-warning btn-flat" data-toggle="modal" data-target="#disburse">Disbursed</button>
+                            <button id="btn_Rejected" class="btn btn-danger btn-flat" data-toggle="modal" data-target="#reject">Rejected</button>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-xs-12 no-padding">
+
+                    </div>
+            </section>
+                <div class="scroll">
+                    <img src="shared/img/scroll-up.png" id="scroll" alt="">
+                </div>        
+        </aside><!-- /.right-side -->
+    </div><!-- ./wrapper -->
+
+    <div id="sendWarningEmail" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-body">
+             <div class="box box-info">
+                <div class="box-header">
+                    <i class="fa fa-envelope"></i>
+                    <h3 class="box-title">Quick Email</h3>
+                    <!-- tools box -->
+                    <div class="pull-right box-tools">
+                        <button class="btn btn-info btn-sm" data-dismiss="modal" data-widget="remove" data-toggle="tooltip" title="Remove"><i class="fa fa-times"></i></button>
+                    </div><!-- /. tools -->
+                </div>
+                <div class="box-body">
+                    <!-- <form action="#" method="post"> -->
+                        <div class="form-group">
+                            <input id="email1" type="email" class="form-control" name="emailto" placeholder="Email to:"/>
+                        </div>
+                        <div class="form-group">
+                            <input id="subject1" type="text" class="form-control" name="subject" placeholder="Subject"/>
+                        </div>
+                        <div>
+                            <textarea id="message1" class="textarea" placeholder="Message" style="width: 100%; height: 125px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+                        </div>
+                    <!-- </form> -->
+                </div>
+                <!-- <div class="box-footer clearfix"> -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" ng-click="sendWarningEmail()">Send</button>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                    </div>
+                <!-- </div> -->
+            </div>
+          </div>
+          
+        </div>
+
+      </div>
+    </div>
+    <!-- varify Modal -->
+    <div id="varify" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Send Verification SMS to USER</h4>
+          </div>
+          <div class="modal-body">
+          <label>Enter Mobile Number to Send SMS :</label>
+          <input id="mobile" placeholder="Enter your phone" ng-pattern="/^(\(?([0-9]{3})\)?)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/" maxlength="10" class="form-control" required/>
+          <label>Enter Message For Verification :</label>
+           <textarea id="message" maxlength="100" placeholder="Enter your Message" class="form-control"></textarea>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" ng-click="SendSmsToUser()">Send</button>
+            <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- approve Modal -->
+    <div id="approve" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Send Approval SMS to USER</h4>
+          </div>
+          <div class="modal-body">
+          <label>Enter Mobile Number to Send SMS :</label>
+          <input placeholder="Enter your phone" ng-pattern="/^(\(?([0-9]{3})\)?)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/" class="form-control" required/>
+          <label>Enter Message For Approval :</label>
+           <textarea placeholder="Enter your Message" class="form-control"></textarea>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="SendSmsToUser()">Send</button>
+            <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+
+    </div>
+    </div>  
+    <!-- disburse Modal -->
+    <div id="disburse" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Send Disbursement SMS to USER</h4>
+          </div>
+          <div class="modal-body">
+          <label>Enter Mobile Number to Send SMS :</label>
+          <input placeholder="Enter your phone" ng-pattern="/^(\(?([0-9]{3})\)?)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/" class="form-control" required/>
+          <label>Enter Message For Disbursement :</label>
+           <textarea placeholder="Enter your Message" class="form-control"></textarea>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="SendSmsToUser()">Send</button>
+            <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+     <!-- Reject Modal -->
+    <div id="reject" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Send Rejection SMS to USER</h4>
+          </div>
+          <div class="modal-body">
+          <label>Enter Mobile Number to Send SMS :</label>
+          <input placeholder="Enter your phone" ng-pattern="/^(\(?([0-9]{3})\)?)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/" class="form-control" required/>
+          <label>Enter Message For Rejection :</label>
+           <textarea placeholder="Enter your Message" class="form-control"></textarea>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="SendSmsToUser()">Send</button>
+            <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- jQuery 2.0.2 -->
+    <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script> -->
+    <!-- Bootstrap -->
+    <!-- <script src="../../js/bootstrap.min.js" type="text/javascript"></script> -->
+    <!-- AdminLTE App -->
+    <!-- <script src="../../js/AdminLTE/app.js" type="text/javascript"></script> -->
+     <script type="text/javascript">
+                $('#scroll').click(function(){
+        $("html, body").animate({ scrollTop: 0 }, 600);
+                return false;
+        });
+    </script>
+</div>

@@ -1,0 +1,114 @@
+{
+  "_args": [
+    [
+      "ion-rangeslider@~2.1.4",
+      "d:\\Kamal\\Work Space\\RuppeFin\\rupeefin-bitbucket"
+    ]
+  ],
+  "_from": "ion-rangeslider@>=2.1.4 <2.2.0",
+  "_id": "ion-rangeslider@2.1.4",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/ion-rangeslider",
+  "_nodeVersion": "5.4.1",
+  "_npmOperationalInternal": {
+    "host": "packages-16-east.internal.npmjs.com",
+    "tmp": "tmp/ion-rangeslider-2.1.4.tgz_1461750526231_0.5671205590479076"
+  },
+  "_npmUser": {
+    "email": "denis.ineshin@gmail.com",
+    "name": "ionden"
+  },
+  "_npmVersion": "3.3.12",
+  "_phantomChildren": {},
+  "_requested": {
+    "name": "ion-rangeslider",
+    "raw": "ion-rangeslider@~2.1.4",
+    "rawSpec": "~2.1.4",
+    "scope": null,
+    "spec": ">=2.1.4 <2.2.0",
+    "type": "range"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/ion-rangeslider/-/ion-rangeslider-2.1.4.tgz",
+  "_shasum": "0d7619bd873384876ac4c81f321ff2ae920a81a5",
+  "_shrinkwrap": null,
+  "_spec": "ion-rangeslider@~2.1.4",
+  "_where": "d:\\Kamal\\Work Space\\RuppeFin\\rupeefin-bitbucket",
+  "author": {
+    "email": "ionden.tech@gmail.com",
+    "name": "Denis Ineshin",
+    "url": "IonDen"
+  },
+  "bugs": {
+    "url": "https://github.com/IonDen/ion.rangeSlider/issues"
+  },
+  "dependencies": {
+    "jquery": ">=1.8"
+  },
+  "description": "Cool, comfortable and easily customizable range slider with many options and skin support",
+  "devDependencies": {},
+  "directories": {
+    "lib": "js"
+  },
+  "dist": {
+    "shasum": "0d7619bd873384876ac4c81f321ff2ae920a81a5",
+    "tarball": "https://registry.npmjs.org/ion-rangeslider/-/ion-rangeslider-2.1.4.tgz"
+  },
+  "gitHead": "b013f67882be811599580a76cf65074dff9f8b5a",
+  "homepage": "http://ionden.com/a/plugins/ion.rangeSlider/en.html",
+  "ignore": [
+    ".idea",
+    "PSD",
+    "bower.json",
+    "ion-rangeSlider.jquery.json",
+    "readme.ru.md"
+  ],
+  "keywords": [
+    "jquery-plugin",
+    "ecosystem:jquery",
+    "jquery",
+    "form",
+    "input",
+    "range",
+    "slider",
+    "rangeslider",
+    "interface",
+    "diapason",
+    "ui",
+    "noui",
+    "skins"
+  ],
+  "license": "MIT",
+  "main": "./js/ion.rangeSlider.js",
+  "maintainers": [
+    {
+      "email": "denis.ineshin@gmail.com",
+      "name": "ionden"
+    }
+  ],
+  "name": "ion-rangeslider",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/IonDen/ion.rangeSlider.git"
+  },
+  "scripts": {},
+  "spm": {
+    "dependencies": {
+      "jquery": "1.11.2"
+    },
+    "ignore": [
+      ".idea",
+      "PSD",
+      "bower.json",
+      "ion-rangeSlider.jquery.json",
+      "readme.ru.md"
+    ],
+    "main": "js/ion.rangeSlider.js"
+  },
+  "version": "2.1.4"
+}

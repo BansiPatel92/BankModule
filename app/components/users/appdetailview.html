@@ -1,0 +1,165 @@
+<div ng-show="adc.show" ng-controller="AppDetailController as adc" style="margin: 67px 0 0;" id="rootwizard" class="ng-scope">
+    <ul disabled="" style="margin-left:15% !important;" class="bwizard-steps">
+        <li class="active"><a><span class="label">1</span> Document Upload</a></li>
+        <li><a><span class="label">2</span> Document Verification</a></li>
+        <li><a><span class="label">3</span> In Process with Bank</a></li>
+        <li><a><span class="label">4</span> Application Approved</a></li>
+        <li><a><span class="label">5</span> Disbursement</a></li>
+    </ul>
+
+    <div>
+        <div class="container">
+            <table class="table table-bordered margin-top-20">
+                <thead>
+                    <tr>
+                        <th>Document Type</th>
+                        <th>Document Name</th>
+                    </tr>
+                </thead>
+                <tbody ng-if="appDocuments.length > 0">
+                    <tr>
+                        <td>{{adc.DocumentHeader}}</td>
+                        <td ng-if="Form16OrITRName"><a target="_blank" href="/documents/personal-loan/{{appNumb}}/{{Form16OrITRFileName}}">{{Form16OrITRName}}</a></td>
+                        <td ng-if="!Form16OrITRName">
+                            <!---->
+                            <div class="form-input-group input-controls-group">
+                                <div class="input-control">
+                                    <div class="col-lg-3 col-sm-3 col-xs-6 text-left">
+                                        <input type="radio" name="rbtnForm" id="rbtnForm" ng-model="adc.DocumentType" value="1">
+                                        <label for="rbtnForm">Form-16</label>
+                                    </div>
+                                    <div class="col-lg-3 col-sm-3 col-xs-6 text-left">
+                                        <input type="radio" name="rbtnITR" id="rbtnITR" ng-model="adc.DocumentType" value="10">
+                                        <label for="rbtnITR">Income Tax Return</label>
+                                    </div>
+                                </div>
+                                <div class="input-control">
+                                    <input type="file" custom-on-change="getFileDetails" name="fileForm16" id="fileForm16" />
+                                    <label for="fileForm16" ng-click="ChangeDocumentType(adc.DocumentType);"><i class="fa fa-upload"></i> Choose a file</label>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Salary slip </td>
+                        <td ng-if="SalarySlipName1"><a target="_blank" href="/documents/personal-loan/{{appNumb}}/{{SalarySlipFileName1}}">{{SalarySlipName1}}</a></td>
+                        <td ng-if="!SalarySlipName1">
+                            <div class="input-controls-group">
+                                <div class="input-control">
+                                    <input type="file" custom-on-change="getFileDetails" document-type="2" name="fileForm16" id="fileForm16" />
+                                    <label for="fileForm16" ng-click="ChangeDocumentType(2);"><i class="fa fa-upload"></i> Choose a file</label>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Salary slip </td>
+                        <td ng-if="SalarySlipName2"><a target="_blank" href="/documents/personal-loan/{{appNumb}}/{{SalarySlipFileName2}}">{{SalarySlipName2}}</a></td>
+                        <td ng-if="!SalarySlipName2">
+                            <div class="input-controls-group">
+                                <div class="input-control">
+                                    <input type="file" custom-on-change="getFileDetails" document-type="2" name="fileForm16" id="fileForm16" />
+                                    <label for="fileForm16" ng-click="ChangeDocumentType(2);"><i class="fa fa-upload"></i> Choose a file</label>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Salary slip </td>
+                        <td ng-if="SalarySlipName3"><a target="_blank" href="/documents/personal-loan/{{appNumb}}/{{SalarySlipFileName3}}">{{SalarySlipName3}}</a></td>
+                        <td ng-if="!SalarySlipName3">
+                            <div class="input-controls-group">
+                                <div class="input-control">
+                                    <input type="file" custom-on-change="getFileDetails" document-type="2" name="fileForm16" id="fileForm16" />
+                                    <label for="fileForm16" ng-click="ChangeDocumentType(2);"><i class="fa fa-upload"></i> Choose a file</label>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Bank Statement </td>
+                        <td ng-if="BankStatementName"><a target="_blank" href="/documents/personal-loan/{{appNumb}}/{{BankStatementFileName}}">{{BankStatementName}}</a></td>
+                        <td ng-if="!BankStatementName">
+                            <div class="input-controls-group">
+                                <div class="input-control">
+                                    <input type="file" custom-on-change="getFileDetails" document-type="3" name="fileForm16" id="fileForm16" />
+                                    <label for="fileForm16" ng-click="ChangeDocumentType(3);"><i class="fa fa-upload"></i> Choose a file</label>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>PAN </td>
+                        <td ng-if="adc.PAN">{{adc.PAN}}</td>
+                        <td ng-if="!adc.PAN">
+                            <div class="form-input-group input-controls-group">
+                                <div class="input-control">
+                                    <input type="text" ui-mask="AAAAA9999A" class="input-blue" placeholder="" min="0" ng-model="adc.PANNumber" name="pannumber" id="pannumber" style="width: 50%;">
+                                    <input type="button" ng-click="savePanDetails();" value="Submit">
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Aadhar </td>
+                        <td ng-if="Aadhar">{{Aadhar}}</td>
+                        <td ng-if="!Aadhar">
+                            <div class="form-input-group input-controls-group">
+                                <div class="input-control">
+                                    <input type="text" ui-mask="9999 9999 9999" class="input-blue" placeholder="" min="0" ng-model="adc.AadharNumber" name="aadharnumber" id="aadharnumber" style="width: 50%;">
+                                    <input type="submit" ng-click="saveAadharDetails();" value="Submit">
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>{{adc.DocumentBillHeader}}</td>
+                        <td ng-if="BillName"><a target="_blank" href="/documents/personal-loan/{{appNumb}}/{{BillFileName}}">{{BillName}}</a></td>
+                        <td ng-if="!BillName">
+                            <div class="form-input-group input-controls-group">
+                                <div class="input-control">
+                                    <div class="col-lg-3 col-sm-3 col-xs-6 text-left">
+                                        <input type="radio" name="rbtnBSNL" id="rbtnBSNL" ng-model="adc.DocumentBillType" value="6">
+                                        <label for="rbtnBSNL">BSNL</label>
+                                    </div>
+                                    <div class="col-lg-3 col-sm-3 col-xs-6 text-left">
+                                        <input type="radio" name="rbtnTelephone" id="rbtnTelephone" ng-model="adc.DocumentBillType" value="7">
+                                        <label for="rbtnTelephone">Telephone Bill</label>
+                                    </div>
+                                    <div class="col-lg-3 col-sm-3 col-xs-6 text-left">
+                                        <input type="radio" name="rbtnElectricity" id="rbtnElectricity" ng-model="adc.DocumentBillType" value="8">
+                                        <label for="rbtnElectricity">Electricity Bill</label>
+                                    </div>
+                                    <div class="col-lg-3 col-sm-3 col-xs-6 text-left">
+                                        <input type="radio" name="rbtnMuncipalty" id="rbtnMuncipalty" ng-model="adc.DocumentBillType" value="9">
+                                        <label for="rbtnMuncipalty">Muncipalty Tax Bill</label>
+                                    </div>
+                                </div>
+                                <div class="input-control">
+                                    <input type="file" custom-on-change="getFileDetails" document-type="6" name="fileForm16" id="fileForm16" />
+                                    <label for="fileForm16" ng-click="ChangeDocumentType(adc.DocumentBillType);"><i class="fa fa-upload"></i> Choose a file</label>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+                <tbody ng-if="appDocuments.length == 0">
+                    <tr>
+                        <td colspan="3" class="text-center">
+                            <a ui-sref="loan-documents({id:appId,appNum: appNumb})">Upload Now</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+

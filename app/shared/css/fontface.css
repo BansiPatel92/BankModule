@@ -1,0 +1,31 @@
+@font-face {
+    font-family: 'karmillabold';
+    src: url('../fonts/karmilla-bold-015-webfont.eot');
+    src: url('../fonts/karmilla-bold-015-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/karmilla-bold-015-webfont.woff2') format('woff2'),
+         url('../fonts/karmilla-bold-015-webfont.woff') format('woff'),
+         url('../fonts/karmilla-bold-015-webfont.ttf') format('truetype'),
+         url('../fonts/karmilla-bold-015-webfont.svg#karmillabold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'karmillaregular';
+    src: url('../fonts/karmilla-regular-015-webfont.eot');
+    src: url('../fonts/karmilla-regular-015-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/karmilla-regular-015-webfont.woff2') format('woff2'),
+         url('../fonts/karmilla-regular-015-webfont.woff') format('woff'),
+         url('../fonts/karmilla-regular-015-webfont.ttf') format('truetype'),
+         url('../fonts/karmilla-regular-015-webfont.svg#karmillaregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'gothamlight';
+    src: url('../fonts/gotham-light-webfont.ttf');
+    font-weight: normal;
+    font-style: normal;
+}

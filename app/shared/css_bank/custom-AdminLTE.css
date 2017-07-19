@@ -1,0 +1,30 @@
+.nav-tabs {border-bottom: 1px solid #ddd;margin-bottom: 15px;}
+.no-padding{padding:0px;}
+section.row.content-header {margin: 15px auto;}
+.right-side > .content-header {position: relative;width: 90%;margin: 15px auto;padding:0px;}/*width: calc(100% - 10px);*/
+.application-title h1 {font-size: 16px;font-weight: 600;display:inline-block;margin:0px;padding: 9px 0px;vertical-align: middle;}
+.header-button{display: inline-block;width:100%;}
+.right-side .content-header span{color:#999;font-size:14px;}
+.bg-red{background-color:#dd4b39;}
+.bg-green{background-color:#00a65a;}
+.bg-aqua{background-color:#00c0ef;}
+h3.widget-user-username {padding: 10px;margin:0px;}
+.box {position: relative;background: #ffffff;border-top: 0px solid #c1c1c1;margin-bottom: 20px;-webkit-border-radius: 3px;-moz-border-radius: 3px;border-radius: 3px;width: 100%;box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);}
+.bg-grey{background-color: transparent;color: #000 !important;}
+.address-formst{word-wrap: break-word;width: 50%;white-space: inherit;text-align: right;display: block;}
+tr.document-type-hover{background-color:#00c0ef;color:#fff;}
+tr.driving-license-bg{background-color: #f9f9f9;}
+.right-side.strech > .content-header {
+    margin-top: 15px;
+}
+
+
+@media only screen and (max-width: 400px){
+   h3.widget-user-username {
+    font-size: 20px;
+}
+button {
+    width: calc(50% - 2px);
+    margin: 15px 0px 15px 0px;
+}
+}

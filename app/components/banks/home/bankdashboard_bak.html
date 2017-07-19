@@ -1,0 +1,57 @@
+﻿<div ng-controller="bankdashboardcontroller" class="padding-top-80">
+    <div class="col-md-12 padding-bottom-15">
+        <ul class="status-tabs">
+            <li ng-class="currentStatus == -1 ? 'active' : ''" ng-click="refreshApplication(-1);">ALL</li>
+            <!--<li><a ng-click="refreshApplication();">NEW</a></li>-->
+            <li ng-class="currentStatus == 1 ? 'active' : ''" ng-click="refreshApplication(1);">DOCUMENT UPLOAD</li>
+            <li ng-class="currentStatus == 2 ? 'active' : ''" ng-click="refreshApplication(2);">DOCUMENT VERIFICATION</li>
+            <li ng-class="currentStatus == 3 ? 'active' : ''" ng-click="refreshApplication(3);">IN PROCESS WITH BANK</li>
+            <li ng-class="currentStatus == 4 ? 'active' : ''" ng-click="refreshApplication(4);">APPROVED</li>
+            <li ng-class="currentStatus == 5 ? 'active' : ''" ng-click="refreshApplication(5);">DISBURSEMENT</li>
+            <li ng-class="currentStatus == 6 ? 'active' : ''" ng-click="refreshApplication(6);">REJECTED</li>
+        </ul>
+    </div>
+    <div class="col-md-12">
+        <table datatable="ng" dt-options="dtOptions" dt-columns="dtColumns" class="table table-hover">
+            <thead>
+                <tr class='header'>
+                    <th>Application#</th>
+                    <th>User Name</th>
+                    <th>Loan Amount</th>
+                    <th>Loan Purpose</th>
+                    <th>Loan Type</th>
+                    <th>Loan Plan Name</th>
+                    <th>Status</th>
+                    <th>Applied Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat='a in Applications'>
+                    <td>
+                        <a ui-sref="banksapplicationdetail({ id:a.applicationNumber })"> {{a.applicationNumber}}</a>
+                    </td>
+                    <td>
+                        {{a.userName}}
+                    </td>
+                    <td ng-bind-html="a.loanAmount | INR"></td>
+                    <td>
+                        {{a.loanPurpose}}
+                    </td>
+                    <td>
+                        {{a.loanType}}
+                    </td>
+                    <td>
+                        {{a.banksLoans}}
+                    </td>
+                    <td>
+                        {{a.status}}
+                    </td>
+                    <td>
+                        {{a.appliedDate|date:'dd-MM-yyyy'}}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <!--<table datatable="" dt-options="dtOptions" dt-columns="dtColumns" class="row-border hover"></table>-->
+    </div>
+</div>
